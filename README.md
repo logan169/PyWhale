@@ -8,11 +8,11 @@ This repo contains a python3 wrapper for whaleclub rest api. It allows user to g
 
 This project was created on my own free time, so if you wish to support my work you could either:
 
-- Consider creating an account using my whaleclub's referral link, so you'll get a 30% deposit bonus: 
-- - https://whaleclub.co/join/pnI1A
-- leave me a tip at:
-- - (BTC) 19nm2SJW7zmNcePePW6pyZBh7FMcWZdYeY
-- - (DASH) XpdDgn28F3GcwyBjHwb6yKXqJ9nYHbrdup
+* Consider creating an account using my whaleclub's referral link, so you'll get a 30% deposit bonus: 
+  * https://whaleclub.co/join/pnI1A
+* leave me a tip at:
+  * (BTC) 19nm2SJW7zmNcePePW6pyZBh7FMcWZdYeY
+  * (DASH) XpdDgn28F3GcwyBjHwb6yKXqJ9nYHbrdup
 
 ## License
 
