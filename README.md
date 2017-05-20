@@ -4,12 +4,15 @@
 
 ## Python3 wrapper for whaleclub rest api
 
-This repo contains a python3 wrapper for whaleclub rest api. It allows user to get mulptiple information and place live and turbo trades. For better user experience, I've paste/reformat whaleclub.co [api] (http://docs.whaleclub.co/#list-turbo-positions) documentation for each function doc string. See usage section to see how it works.
+This repo contains a python3 wrapper for whaleclub rest api. It allows user to get mulptiple information and place live and turbo trades. For better user experience, I've paste/reformat whaleclub.co [api](http://docs.whaleclub.co/#list-turbo-positions) documentation for each function doc string. See usage section to see how it works.
 
 This project was created on my own free time, so if you wish to support my work you could either:
 
-- Consider creating an account using my whaleclub's referral link, so you'll get a 30% deposit bonus: https://whaleclub.co/join/pnI1A
-- leave me a tip at (BTC): 19nm2SJW7zmNcePePW6pyZBh7FMcWZdYeY or (DASH) XpdDgn28F3GcwyBjHwb6yKXqJ9nYHbrdup
+- Consider creating an account using my whaleclub's referral link, so you'll get a 30% deposit bonus: 
+- - https://whaleclub.co/join/pnI1A
+- leave me a tip at:
+- - (BTC) 19nm2SJW7zmNcePePW6pyZBh7FMcWZdYeY
+- - (DASH) XpdDgn28F3GcwyBjHwb6yKXqJ9nYHbrdup
 
 ## License
 
@@ -27,7 +30,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ## Installation
 
-    $ git clone
+    $ git clone git@github.com:logan169/PyWhale.git
     $ cd pywhale/app
 
 ## How to use it
@@ -67,8 +70,12 @@ Then complet every following files with their respective api key:
     #Remove print output function
     $ pw.verbose = False
     
+    
+### Default key
+
+#### Pease note that if you don't pass a key parameter while calling a function, default.key 'BTC_demo_key' will be used.
+
     #Display actual default key that is going to be used (if key parameter is not specified)
-    #Default is 'BTC_demo_key'
     $ pw.default_key
     
     #Change default key 
