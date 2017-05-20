@@ -14,6 +14,7 @@
 # General Public LICENSE along with krakenex. If not, see
 # <http://www.gnu.org/licenses/gpl-3.0.txt>.
 
+import sys
 
 class Api (object):
 	"""	Whaleclub.co cryptocurrency Exchange API Pyhon Client Connection Handler methods:"""
