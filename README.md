@@ -37,20 +37,33 @@ Then complet every following files with their respective api key:
     #Start ipython
     $ ipython3
     
-    #Import module
+    #Import module and create a PyWhale() instance
     $ from PyWhale import PyWhale
-        
-    #Create a PyWhale() instance
     $ pw = PyWhale()    
+    
+    ![Alt text](/pw.jpg?raw=true "pywhale logo")
 
     #Print help
-    $ print(pw.help())
+    $ pw.help()
+    
+    ![Alt text](/help.jpg?raw=true "pywhale logo")
+    
+    #Get more information about a function
+    $  print (pw.getBalance.__doc__)
+    
+    ![Alt text](/balance.jpg?raw=true "pywhale logo")
     
     #Remove print output function
     $ pw.verbose = False
     
-    #Remove print output function
-    $ pw.verbose = False
+    #Display actual default key that is going to be used (if key parameter is not specified)
+    #Default is 'BTC_demo_key'
+    $ pw.default_key
+    
+    
+    
+    
+
 
 
 
