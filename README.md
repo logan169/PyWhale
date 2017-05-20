@@ -6,7 +6,7 @@
 
 This repo contains a python3 wrapper for whaleclub rest api. It allows user to get mulptiple information and place live and turbo trades. For better user experience, I've paste/reformat whaleclub.co [api](http://docs.whaleclub.co/#list-turbo-positions) documentation for each function doc string. See usage section to see how it works.
 
-This project was created on my own free time, so if you wish to support my work you could either:
+This project was created on my own free time, so if you wish to support my work you could start by staring it and either:
 
 * Consider creating an account using my whaleclub's referral link, so you'll get a 30% deposit bonus: 
   * https://whaleclub.co/join/pnI1A
