@@ -15,8 +15,6 @@
 # <http://www.gnu.org/licenses/gpl-3.0.txt>.
 
 import json
-
-import sys
 from pywhale.connection.Api import Api
 from pywhale.trade.General import General
 from pywhale.trade.Live import Live
