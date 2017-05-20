@@ -1,8 +1,7 @@
 # PyWhale
 
 ## Python3 wrapper for whaleclub rest api
-
-! [pywhale logo](./whale2.png)
+![Alt text](/whale2.png?raw=true "pywhale logo")
 
 This repo contains a python3 wrapper for whaleclub rest api. The main goal was to make it as simple as possible.
 
