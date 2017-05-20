@@ -41,17 +41,17 @@ Then complet every following files with their respective api key:
     $ from PyWhale import PyWhale
     $ pw = PyWhale()    
     
-    ![Alt text](/pw.jpg?raw=true "pywhale logo")
+![Alt text](/pw.jpg?raw=true "pywhale logo")
 
     #Print help
     $ pw.help()
     
-    ![Alt text](/help.jpg?raw=true "pywhale logo")
+![Alt text](/help.jpg?raw=true "pywhale logo")
     
     #Get more information about a function
     $  print (pw.getBalance.__doc__)
     
-    ![Alt text](/balance.jpg?raw=true "pywhale logo")
+![Alt text](/balance.jpg?raw=true "pywhale logo")
     
     #Remove print output function
     $ pw.verbose = False
