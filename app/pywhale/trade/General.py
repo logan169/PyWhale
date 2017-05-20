@@ -190,4 +190,42 @@ currency 	string 		Base currency.
 		print ('\nYour Transactions history: \n')
 
 		return self._checkResp(r)
+	
+	@classmethod
+	def help(self,function_name = None):
+		"""Returns a list of all callable functions"""
+		help_message = """
+Available functions:
+-------------------
+
+General:
+--------
+help()			Returns a list of all callable functions.
+getMarkets()		Returns market information for one or more markets.
+getPrice()		Returns the current bid and ask prices for one or more markets.
+getBalance()		Returns information about your balance.
+getTransactions()	List transactions that have occurred on your account.
+
+Live:
+-----
+newPosition()		Submit a new position.
+getPosition()		Fetch information about an existing position.
+updatePosition()	Fetch information about an existing position.
+closePosition()		Close one or multiple active positions at market price.
+cancelPosition()	Cancel one or multiple pending positions.
+splitPosition()		Split an existing pending or active position.
+listPositions()		List positions.
+
+Turbo:
+------
+getTurboActiveContracts()	Fetch a list of currently active turbo contracts.
+createNewTurboPosition()	Open a new turbo position.
+getTurboPosition()		Fetch information about an existing turbo position.
+listturboPositions()		List turbo positions.
+
+You could type print(PyWhale.function_name.__doc__) to get more info about any function
+		"""
+		
+		print (help_message)
+		return 
 
