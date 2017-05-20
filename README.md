@@ -13,9 +13,9 @@ This project was created on my own free time, so if you wish to support my work 
 
 ## License
 
-The MIT License (MIT)
+GNU Lesser General Public
 
-Copyright (c) 2013 Mike van Rossum mike@mvr.me
+2017 Logan Schwartz logan1691987@gmail.com
 
 pywhale is free software: you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
