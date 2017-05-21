@@ -1,6 +1,6 @@
 ![Alt text](/picts/whale2.png?raw=true "pywhale logo")
 
-## __:whale: Python3 wrapper for whaleclub REST api__
+## __:whale: Python3 wrapper for whaleclub REST api:__
 
 PyWhale is a python3 wrapper for [whaleclub.co REST api](http://docs.whaleclub.co/#overview). [Whaleclub.co](https://whaleclub.co/) in addition of offering a demo mode for newcomers, is a great trading exchange platform having one of the best UI and support service I've saw so far. 
 
@@ -14,16 +14,16 @@ As far as I know, PyWhale is the only alternative language available if you can'
   * (BTC) 19nm2SJW7zmNcePePW6pyZBh7FMcWZdYeY
   * (DASH) XpdDgn28F3GcwyBjHwb6yKXqJ9nYHbrdup
 
-## __Dependencies__
+## __Dependencies:__
 
 * Requests
 
-## __Installation__
+## __Installation:__
     $ pip3 install requests 
     $ git clone git@github.com:logan169/PyWhale.git
     $ cd PyWhale/app
 
-## __How to use it__
+## __How to use it:__
 
 After creating an account, get your API token from your API Settings panel which is available from the top right menu in your trading dashboard. You get one token for live trading and another for demo trading.
 
@@ -34,9 +34,9 @@ Then complet every following files with their respective api key:
 - pywhale/app/DASH_demo_key
 - pywhale/app/DASH_real_key
 
-##### Beware to not invert api key, I strongly advise that you verify twice that you've entered the right key in each file.
+##### __*Beware to not invert api key, I strongly advise that you check that part twice.*__
 
-## __Usage__
+## __Usage:__
 
 ##### __Lets start some Whaly stuff:__
     
@@ -60,6 +60,8 @@ Then complet every following files with their respective api key:
 
 ##### __Switch between real/demo mode & BTC/DASH trading:__
 
+In PyWhale, you could easily switch between real/demo mode & BTC/DASH trading by directly passing key value in function inputs so you don't have to memorize several functions to do the same thing for each mode.
+
 ###### __Possible key values:__
 
 - 'BTC_real_key'
@@ -67,20 +69,22 @@ Then complet every following files with their respective api key:
 - 'DASH_real_key'
 - 'DASH_demo_key'
 
-In PyWhale, you could easily switch between real/demo mode & BTC/DASH trading by directly passing key value in function inputs.
-    
+###### __Examples:__
+
+    # Create a new turbo position for DASH demo mode
     $ pw.createNewTurboPosition(market='BTC-USD',position_direction='long',contract_type='5min',size=100000,key='DASH_demo_key')
+
 ![Alt text](/picts/passing_key.jpg?raw=true "pywhale logo")
 
 The previous approach works well if you want to change real/demo mode & BTC/DASH trading ponctualy, but if you planned just trading using one mode this could get quickly tedious. This is the reason why I set a default_key attribute that could be changed once and will be then used as default key parameter value while calling a function. 
 
 In other words, if you don't pass a key parameter while calling a function, default.key attribute value will be used.
-You should note that after creating a PyWhale instance, default_key attribute value is 'BTC_demo_key' so you could safely calls functions without any fears of using your real balance.
+You should note that after creating a PyWhale instance, default_key attribute value is 'BTC_demo_key' so you could safely calls functions without any fears of using your real balance from starts.
 
-    # display actual default_key attribute
+    # Display actual default_key attribute
     $ pw.default_key
     
-    # change default_key attribute
+    # Change default_key attribute
     $ pw.default_key = 'DASH_demo_key'
     
 ![Alt text](/picts/default_key.jpg?raw=true "pywhale logo")
