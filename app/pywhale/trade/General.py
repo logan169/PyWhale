@@ -58,7 +58,9 @@ turbo 			object	Information about turbo trading, if it’s available for this ma
 		h = {"Authorization":"Bearer "+key,"Partner-ID":"pnI1A"}
 		r = requests.get(url,headers=h)
 
-		print ('\nMarkets informations: \n')
+		
+        if self.verbose:
+		    print ('\nMarkets informations: \n')
 
 		return self._checkResp(r)
 
@@ -99,7 +101,9 @@ last_updated	integer		When prices for this market were last updated.
 		h = {"Authorization":"Bearer "+key,"Partner-ID":"pnI1A"}
 		r = requests.get(url,headers=h)
 
-		print ('\nPrice informations: \n')
+		
+        if self.verbose:
+		    print ('\nPrice informations: \n')
 
 		return self._checkResp(r)
 
@@ -137,7 +141,9 @@ currency		string		Base currency.
 		h = {"Authorization":"Bearer "+key,"Partner-ID":"pnI1A"}
 		r = requests.get(url,headers=h)
 
-		print ('\nYour balance informations: \n')
+		
+        if self.verbose:
+		    print ('\nYour balance informations: \n')
 
 		return self._checkResp(r)
 
@@ -187,7 +193,9 @@ currency 	string 		Base currency.
 		d = {'limit':limit}
 		r = requests.get(url,headers=h,)
 
-		print ('\nYour Transactions history: \n')
+		
+        if self.verbose:
+		    print ('\nYour Transactions history: \n')
 
 		return self._checkResp(r)
 	

@@ -71,9 +71,9 @@ Then complet every following files with their respective api key:
     
 ![Alt text](/balance.jpg?raw=true "pywhale logo")
     
-    #Remove print output function
+    #Want just ipython output?
     $ pw.verbose = False
-    
+![Alt text](/verbose.jpg?raw=true "pywhale logo")
     
 ### Default key
 
