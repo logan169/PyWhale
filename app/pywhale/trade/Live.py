@@ -195,7 +195,7 @@ currency		string 	Base currency.
 
 		#Create request elements
 		url = self.start_url+'position/'+position_id
-		h = {"Authorization":"Bearer "+key,"Partner-ID":"pnI1A"}
+		h = {"Authorization":"Bearer "+key}
 		r = requests.get(url,headers=h)
 
 		if self.verbose:
@@ -409,7 +409,7 @@ currency		string 	Base currency.
 
 		#Create request elements
 		url = self.start_url+'position/cancel/'+position_id
-		h = {"Authorization":"Bearer "+key,"Partner-ID":"pnI1A"}
+		h = {"Authorization":"Bearer "+key}
 		r = requests.put(url, headers=h)
 
 		if self.verbose:
@@ -547,7 +547,7 @@ currency		string 	Base currency.
 
 		#Create request elements
 		url = self.start_url+'positions/'+ position_state
-		h = {"Authorization":"Bearer "+key,"Partner-ID":"pnI1A"}
+		h = {"Authorization":"Bearer "+key}
 		r = requests.get(url,headers=h,data = d)
 
 		if self.verbose:

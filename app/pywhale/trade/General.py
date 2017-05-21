@@ -55,7 +55,7 @@ turbo 			object	Information about turbo trading, if it’s available for this ma
 
 		#Create request elements
 		url = self.start_url+'markets/' + str(symbols)
-		h = {"Authorization":"Bearer "+key,"Partner-ID":"pnI1A"}
+		h = {"Authorization":"Bearer "+key}
 		r = requests.get(url,headers=h)
 
 		if self.verbose:
@@ -97,7 +97,7 @@ last_updated	integer		When prices for this market were last updated.
 
 		#Create request elements
 		url = self.start_url+'price/' + str(symbols)
-		h = {"Authorization":"Bearer "+key,"Partner-ID":"pnI1A"}
+		h = {"Authorization":"Bearer "+key}
 		r = requests.get(url,headers=h)
 		
 		if self.verbose:
@@ -137,7 +137,7 @@ currency		string		Base currency.
 
 		#Create request elements
 		url = self.start_url+'balance'
-		h = {"Authorization":"Bearer "+key,"Partner-ID":"pnI1A"}
+		h = {"Authorization":"Bearer "+key}
 		r = requests.get(url,headers=h)
 
 		if self.verbose:
@@ -187,7 +187,7 @@ currency 	string 		Base currency.
 
 		#Create request elements
 		url = self.start_url+'transactions/'+transaction_type
-		h = {"Authorization":"Bearer "+key,"Partner-ID":"pnI1A"}
+		h = {"Authorization":"Bearer "+key}
 		d = {'limit':limit}
 		r = requests.get(url,headers=h,)
 
