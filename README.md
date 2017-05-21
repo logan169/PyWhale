@@ -1,6 +1,6 @@
 # PyWhale
 
-![Alt text](/whale2.png?raw=true "pywhale logo")
+![Alt text](/picts/whale2.png?raw=true "pywhale logo")
 
 ## Python3 wrapper for whaleclub rest api
 
@@ -59,21 +59,21 @@ Then complet every following files with their respective api key:
     $ from PyWhale import PyWhale
     $ pw = PyWhale()    
     
-![Alt text](/pw.jpg?raw=true "pywhale logo")
+![Alt text](/picts/pw.jpg?raw=true "pywhale logo")
 
     #Print help
     $ pw.help()
     
-![Alt text](/help.jpg?raw=true "pywhale logo")
+![Alt text](/picts/help.jpg?raw=true "pywhale logo")
     
     #Get more information about a function
     $  print (pw.getBalance.__doc__)
     
-![Alt text](/balance.jpg?raw=true "pywhale logo")
+![Alt text](/picts/balance.jpg?raw=true "pywhale logo")
     
     #Want just ipython output?
     $ pw.verbose = False
-![Alt text](/verbose.jpg?raw=true "pywhale logo")
+![Alt text](/picts/verbose.jpg?raw=true "pywhale logo")
 
 Please note that after creating an PyWhale() instance default.key is 'BTC_demo_key', so typing the following line would produce the same results:
     
@@ -94,10 +94,10 @@ In PyWhale, you could easily switch between real/demo mode & BTC/DASH trading by
 
     $ pw.default_key
     $ pw.default_key = 'DASH_demo_key'
-![Alt text](/default_key.jpg?raw=true "pywhale logo")
+![Alt text](/picts/default_key.jpg?raw=true "pywhale logo")
 
     $ pw.createNewTurboPosition(market='BTC-USD',position_direction='long',contract_type='5min',size=100000,key='DASH_demo_key')
-![Alt text](/passing_key.jpg?raw=true "pywhale logo")
+![Alt text](/picts/passing_key.jpg?raw=true "pywhale logo")
     
     
 ##### Pease note that if you don't pass a key parameter while calling a function, default.key attribute value will be used.
