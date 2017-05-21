@@ -76,6 +76,7 @@ Then complet every following files with their respective api key:
 ![Alt text](/verbose.jpg?raw=true "pywhale logo")
 
 Please note that after creating an PyWhale() instance default.key is 'BTC_demo_key', so typing the following line would produce the same results:
+    
     $ pw.getBalance()
 
 ### Switch between real/demo mode & BTC/DASH trading
