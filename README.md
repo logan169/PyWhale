@@ -74,17 +74,33 @@ Then complet every following files with their respective api key:
     #Want just ipython output?
     $ pw.verbose = False
 ![Alt text](/verbose.jpg?raw=true "pywhale logo")
-    
-### Default key
 
-#### Pease note that if you don't pass a key parameter while calling a function, default.key 'BTC_demo_key' will be used.
+Please note that after creating an PyWhale() instance default.key is 'BTC_demo_key', so typing the following line would produce the same results:
+    $ pw.getBalance()
 
-    #Display actual default key that is going to be used (if key parameter is not specified)
+### Switch between real/demo mode & BTC/DASH trading
+
+In PyWhale, you could easily switch between real/demo mode & BTC/DASH trading by either changing default_key attribute value or directly pass key value in function inputs.
+
+##### Possible key values:
+
+- 'BTC_real_key'
+- 'BTC_demo_key'
+- 'DASH_real_key'
+- 'DASH_demo_key'
+
+##### Examples
+
     $ pw.default_key
+    $ pw.default_key = 'DASH_demo_key'
+![Alt text](/default_key.jpg?raw=true "pywhale logo")
+
+    $ pw.createNewTurboPosition(market='BTC-USD',position_direction='long',contract_type='5min',size=100000,key='DASH_demo_key')
+![Alt text](/passing_key.jpg?raw=true "pywhale logo")
     
-    #Change default key 
-    #Key parameter could either be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key'.
-    $ pw.default_key = 'BTC_real_key'
+    
+##### Pease note that if you don't pass a key parameter while calling a function, default.key attribute value will be used.
+
     
     
 
