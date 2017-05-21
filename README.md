@@ -25,7 +25,7 @@ As far as I know, PyWhale is the only alternative language available if you can'
 
 ## __How to use it:__
 
-After creating an account, get your API token from your API Settings panel which is available from the top right menu in your trading dashboard. You get one token for live trading and another for demo trading.
+After creating an account (please consider using my referral links if you don't have one yet), get your API token from your API Settings panel which is available from the top right menu in your trading dashboard. You get one token for live trading and another for demo trading.
 
 Then complet every following files with their respective api key:
 
