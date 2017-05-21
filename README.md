@@ -38,7 +38,7 @@ Then copy/paste each api key in the respective following files:
 
 ## __Usage:__
 
-##### __Lets start some Whaly stuff:__
+##### __Lets do some Whaly stuff:__
     
     $ from PyWhale import PyWhale
     $ pw = PyWhale()  
