@@ -81,5 +81,6 @@ class PyWhale(Api,General,Live,Turbo):
 
 	
 		
+pw = PyWhale()
 
 

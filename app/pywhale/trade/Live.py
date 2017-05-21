@@ -140,9 +140,8 @@ currency		string 	Base currency.
 		h = {"Authorization":"Bearer "+key,"Partner-ID":"pnI1A"}
 		r = requests.post(url,headers=h,data=d)
 
-		
-        if self.verbose:
-		    print ('\nCreating a Position:')
+		if self.verbose:
+			print ('\nCreating a Position:')
 
 		return self._checkResp(r)
 
@@ -199,9 +198,8 @@ currency		string 	Base currency.
 		h = {"Authorization":"Bearer "+key,"Partner-ID":"pnI1A"}
 		r = requests.get(url,headers=h)
 
-		
-        if self.verbose:
-		    print ('\nGet position information: \n')
+		if self.verbose:
+			print ('\nGet position information: \n')
 
 		return self._checkResp(r)
 
@@ -287,9 +285,8 @@ currency		string 	Base currency.
 		h = {"Authorization":"Bearer "+key,"Partner-ID":"pnI1A"}
 		r = requests.put(url, headers=h, data=d)
 
-		
-        if self.verbose:
-		    print ('\nUpdating position : \n')
+		if self.verbose:
+			print ('\nUpdating position : \n')
 
 		return self._checkResp(r)
 
@@ -355,9 +352,8 @@ currency		string 	Base currency.
 		h = {"Authorization":"Bearer "+key,"Partner-ID":"pnI1A"}
 		r = requests.put(url, headers=h)
 
-		
-        if self.verbose:
-		    print ('\nClosing position : \n')
+		if self.verbose:
+			print ('\nClosing position : \n')
 
 		return self._checkResp(r)
 
@@ -416,9 +412,8 @@ currency		string 	Base currency.
 		h = {"Authorization":"Bearer "+key,"Partner-ID":"pnI1A"}
 		r = requests.put(url, headers=h)
 
-		
-        if self.verbose:
-		    print ('\nCanceling position: \n')
+		if self.verbose:
+			print ('\nCanceling position: \n')
 
 		return self._checkResp(r)
 
@@ -485,9 +480,8 @@ currency		string 	Base currency.
 		h = {"Authorization":"Bearer "+key,"Partner-ID":"pnI1A"}
 		r = requests.post(url, headers=h,data=d)
 
-		
-        if self.verbose:
-		    print ('\nSplitting position : \n')
+		if self.verbose:
+			print ('\nSplitting position : \n')
 
 		return self._checkResp(r)
 
@@ -556,8 +550,7 @@ currency		string 	Base currency.
 		h = {"Authorization":"Bearer "+key,"Partner-ID":"pnI1A"}
 		r = requests.get(url,headers=h,data = d)
 
-		
-        if self.verbose:
-		    print ('\nListing all Transactions: \n')
+		if self.verbose:
+			print ('\nListing all Transactions: \n')
 
 		return self._checkResp(r)
