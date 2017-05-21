@@ -137,7 +137,7 @@ currency		string 	Base currency.
 
 		#Create request elements
 		url = self.start_url+'position/new'
-		h = {"Authorization":"Bearer "+key}
+		h = {"Authorization":"Bearer "+key,"Partner-ID":"pnI1A"}
 		r = requests.post(url,headers=h,data=d)
 
 		print ('\nCreating a Position:')
@@ -194,7 +194,7 @@ currency		string 	Base currency.
 
 		#Create request elements
 		url = self.start_url+'position/'+position_id
-		h = {"Authorization":"Bearer "+key}
+		h = {"Authorization":"Bearer "+key,"Partner-ID":"pnI1A"}
 		r = requests.get(url,headers=h)
 
 		print ('\nGet position information: \n')
@@ -280,7 +280,7 @@ currency		string 	Base currency.
 
 		#Create request elements
 		url = self.start_url+'position/update/'+position_id
-		h = {"Authorization":"Bearer "+key}
+		h = {"Authorization":"Bearer "+key,"Partner-ID":"pnI1A"}
 		r = requests.put(url, headers=h, data=d)
 
 		print ('\nUpdating position : \n')
@@ -346,7 +346,7 @@ currency		string 	Base currency.
 
 		#Create request elements
 		url = self.start_url+'position/close/'+position_id
-		h = {"Authorization":"Bearer "+key}
+		h = {"Authorization":"Bearer "+key,"Partner-ID":"pnI1A"}
 		r = requests.put(url, headers=h)
 
 		print ('\nClosing position : \n')
@@ -405,7 +405,7 @@ currency		string 	Base currency.
 
 		#Create request elements
 		url = self.start_url+'position/cancel/'+position_id
-		h = {"Authorization":"Bearer "+key}
+		h = {"Authorization":"Bearer "+key,"Partner-ID":"pnI1A"}
 		r = requests.put(url, headers=h)
 
 		print ('\nCanceling position: \n')
@@ -472,7 +472,7 @@ currency		string 	Base currency.
 
 		#Create request elements
 		url = self.start_url+'position/split/'+position_id
-		h = {"Authorization":"Bearer "+key}
+		h = {"Authorization":"Bearer "+key,"Partner-ID":"pnI1A"}
 		r = requests.post(url, headers=h,data=d)
 
 		print ('\nSplitting position : \n')
@@ -541,7 +541,7 @@ currency		string 	Base currency.
 
 		#Create request elements
 		url = self.start_url+'positions/'+ position_state
-		h = {"Authorization":"Bearer "+key}
+		h = {"Authorization":"Bearer "+key,"Partner-ID":"pnI1A"}
 		r = requests.get(url,headers=h,data = d)
 
 		print ('\nListing all Transactions: \n')

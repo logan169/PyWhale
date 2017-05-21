@@ -46,7 +46,7 @@ expires_at		integer		When the contract expires and turbo positions settle.
 
 		#Create request elements
 		url = self.start_url+'contracts'
-		h = {"Authorization":"Bearer "+key}
+		h = {"Authorization":"Bearer "+key,"Partner-ID":"pnI1A"}
 		r = requests.get(url,headers=h)
 
 		print ('\nListing available active turbo contract: \n')
@@ -122,7 +122,7 @@ currency 	string 		Base currency.
 
 		#Create request elements
 		url = self.start_url+'position-turbo/new'
-		h = {"Authorization":"Bearer "+key}
+		h = {"Authorization":"Bearer "+key,"Partner-ID":"pnI1A"}
 		r = requests.post(url, headers=h, data=d)
 
 		print ('\nOpening a turbo position: \n')
@@ -169,7 +169,7 @@ currency 	string 		Base currency.
 
 		#Create request elements
 		url = self.start_url+'position-turbo/'+ position_id
-		h = {"Authorization":"Bearer "+key}
+		h = {"Authorization":"Bearer "+key,"Partner-ID":"pnI1A"}
 		r = requests.get(url, headers=h)
 
 		print ('\nTurbo position informations: \n')
@@ -227,7 +227,7 @@ currency 	string 		Base currency.
 
 		#Create request elements
 		url = self.start_url+'positions-turbo/'+ position_state
-		h = {"Authorization":"Bearer "+key}
+		h = {"Authorization":"Bearer "+key,"Partner-ID":"pnI1A"}
 		r = requests.get(url,headers=h,data = d)
 
 		print ('\nListing all turbo positions: \n')
