@@ -36,7 +36,7 @@ entry_price		number 	Optional Set this to submit a limit/stop order. If omitted,
 stop_loss		number 	Optional Price at which your position will auto-close in case of loss.
 stop_loss_trailing	boolean Optional Set to true to enable the stop loss to trail. Works only if stop_loss is set.
 take_profit		number 	Optional Price at which your position will auto-close in profit.
-key   			string 	Optional One API token to use in order to send the request, could either be 'BTC_live_key', 'BTC_demo_key', 'DASH_live_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
+key   			string 	Optional One API token to use in order to send the request, could either be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
 
 resp:
 -----
@@ -151,7 +151,7 @@ Fetch information about an existing position.
 args:
 -----
 position_id 		string 	Id of the Position we want to get informations about
-key 			string 	Optional One API token to use in order to send the request, could either be 'BTC_live_key', 'BTC_demo_key', 'DASH_live_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
+key 			string 	Optional One API token to use in order to send the request, could either be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
 
 resp:
 -----
@@ -210,7 +210,7 @@ position_id 		string 				Required. 	Id of the Position we want to get informatio
 stop_loss 		number 				Optional. 	Price at which the position will auto-close in case of loss. Must be set if take_profit is not. Set to 0 to remove an existing stop-loss.
 stop_loss_trailing 	boolean or number 		Optional. 	Set to true to enable the stop loss to trail. Works only if stop_loss is set. Set to 0 to disable trailing.
 take_profit 		number 				Optional. 	rice at which the position will auto-close in profit. Must be set if stop_loss is not. Set to 0 to remove an existing take-profit.
-key 			string 				Optional. 	One API token to use in order to send the request, could either be 'BTC_live_key', 'BTC_demo_key', 'DASH_live_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
+key 			string 				Optional. 	One API token to use in order to send the request, could either be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
 
 resp:
 -----
@@ -303,7 +303,7 @@ position_id 		string 				Required. 	Id of the Position we want to get informatio
 stop_loss 		number 				Optional. 	Price at which the position will auto-close in case of loss. Must be set if take_profit is not. Set to 0 to remove an existing stop-loss.
 stop_loss_trailing 	boolean or number 		Optional. 	Set to true to enable the stop loss to trail. Works only if stop_loss is set. Set to 0 to disable trailing.
 take_profit 		number 				Optional. 	rice at which the position will auto-close in profit. Must be set if stop_loss is not. Set to 0 to remove an existing take-profit.
-key 			string 				Optional. 	One API token to use in order to send the request, could either be 'BTC_live_key', 'BTC_demo_key', 'DASH_live_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
+key 			string 				Optional. 	One API token to use in order to send the request, could either be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
 
 resp:
 -----
@@ -362,7 +362,7 @@ This function allows you to cancel limit or stop orders that haven’t yet execu
 
 args:
 position_id 		string 		Required. 	Id of the Position we want to get informations about
-key 			string 		Optional. 	One API token to use in order to send the request, could either be 'BTC_live_key', 'BTC_demo_key', 'DASH_live_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
+key 			string 		Optional. 	One API token to use in order to send the request, could either be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
 
 resp:
 -----
@@ -420,7 +420,7 @@ This function  allows you to split an existing position according to a ratio you
 args:
 position_id 		string 		Required. 	Id of the Position we want to get informations about
 ratio			integer		Required 	Pourcent you want to split your position. Must be between 5 and 95.
-key 			string 		Optional. 	One API token to use in order to send the request, could either be 'BTC_live_key', 'BTC_demo_key', 'DASH_live_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
+key 			string 		Optional. 	One API token to use in order to send the request, could either be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
 
 resp:
 -----
@@ -489,7 +489,7 @@ Pending positions are sorted by created_at, active positions are sorted by enter
 args:
 position_state		string 		Optional. 	State can be 'pending', 'active', or 'closed'. Defaults to active
 limit 			integer 	Optional. 	Number of results per request. Defaults to 5. Max is 30.
-key     		string 		Optional. 	One API token to use in order to send the request, could either be 'BTC_live_key', 'BTC_demo_key', 'DASH_live_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
+key     		string 		Optional. 	One API token to use in order to send the request, could either be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
 
 resp:
 -----

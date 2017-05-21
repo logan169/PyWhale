@@ -44,9 +44,9 @@ After creating an account, get your API token from your API Settings panel which
 Then complet every following files with their respective api key:
 
 - pywhale/app/BTC_demo_key.txt
-- pywhale/app/BTC_live_key.txt
+- pywhale/app/BTC_real_key.txt
 - pywhale/app/DASH_demo_key
-- pywhale/app/DASH_live_key
+- pywhale/app/DASH_real_key
 
 #### Beware to not invert api key, I strongly advise that you verify twice that you've entered the right key in each file.
 
@@ -83,8 +83,8 @@ Then complet every following files with their respective api key:
     $ pw.default_key
     
     #Change default key 
-    #Key parameter could either be 'BTC_live_key', 'BTC_demo_key', 'DASH_live_key' or 'DASH_demo_key'.
-    $ pw.default_key = 'BTC_live_key'
+    #Key parameter could either be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key'.
+    $ pw.default_key = 'BTC_real_key'
     
     
 

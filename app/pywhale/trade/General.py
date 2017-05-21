@@ -28,7 +28,7 @@ Default returns a list of of available markets with basic information such as di
 args:
 -----
 symbols 	string 		List of one or more comma-separated market symbols. You can request market information for up to 5 markets at once. Default is "" and return all symbols
-key     	string 		One API token to use in order to send the request, could either be 'BTC_live_key', 'BTC_demo_key', 'DASH_live_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
+key     	string 		One API token to use in order to send the request, could either be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
 
 resp:
 -----
@@ -69,7 +69,7 @@ Returns the current bid and ask prices for one or more markets.
 args:
 -----
 symbols		string 		List of one or more comma-separated market symbols. You can request market information for up to 5 markets at once. Default is "" and return all symbols
-key		string 		One API token to use in order to send the request, could either be 'BTC_live_key', 'BTC_demo_key', 'DASH_live_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
+key		string 		One API token to use in order to send the request, could either be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
 
 resp:
 -----
@@ -106,11 +106,11 @@ last_updated	integer		When prices for this market were last updated.
 	def getBalance(self,key=None):
 		"""
 Returns information about your balance.
-BTC/DASH real or demo balance information will be returned based on whether you pass 'BTC_live_key', 'BTC_demo_key', 'DASH_live_key' or 'DASH_demo_key' as key parameter.
+BTC/DASH real or demo balance information will be returned based on whether you pass 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key' as key parameter.
 
 args:
 -----
-key     	string 		One API token to use in order to send the request, could either be 'BTC_live_key', 'BTC_demo_key', 'DASH_live_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
+key     	string 		One API token to use in order to send the request, could either be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
 
 resp:
 -----
@@ -151,7 +151,7 @@ args:
 -----
 transaction_type	string		transaction_type can be 'deposits', 'withdrawals', 'referrals', or 'bonuses'. Defaults to deposits.
 limit 			integer 	Optional. Number of results per request. Defaults to 5. Max is 50.
-key     		string 		One API token to use in order to send the request, could either be 'BTC_live_key', 'BTC_demo_key', 'DASH_live_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
+key     		string 		One API token to use in order to send the request, could either be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
 
 resp:
 -----
