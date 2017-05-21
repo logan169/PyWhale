@@ -78,7 +78,7 @@ In PyWhale, you could easily switch between real/demo mode & BTC/DASH trading by
 
 The previous approach works well if you want to change real/demo mode & BTC/DASH trading punctually, but if you have planned just trading using only one mode this could get quickly tedious. For this reason, I've set a default_key attribute that could be changed once and will be then used automatically as the default key parameter value while calling further functions. 
 
-In other words, if you don't pass a key parameter while calling a function, default.key attribute value will be used.
+In other words, if you don't pass a key parameter value while calling a function, default.key attribute value will be used.
 You should note that after creating a PyWhale instance, default_key attribute value is 'BTC_demo_key' so you could safely call functions without any fears of using your real balance from starts.
 
     # Display actual default_key attribute
