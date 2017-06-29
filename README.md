@@ -11,8 +11,7 @@ As far as I know, PyWhale is the only alternative language available if you can'
 * Consider creating an account using my whaleclub's referral link, so you'll get a 30% deposit bonus: 
   * https://whaleclub.co/join/pnI1A
 * leave me a tip at:
-  * (BTC) 19nm2SJW7zmNcePePW6pyZBh7FMcWZdYeY
-  * (DASH) XpdDgn28F3GcwyBjHwb6yKXqJ9nYHbrdup
+  * (BTC) 1MsRAPzQyvoRa5w3oBbPveSg6y6S7Ycogg
 
 ## __Dependencies:__
 
