@@ -71,7 +71,7 @@ In PyWhale, you could easily switch between real/demo mode & BTC/DASH trading by
 ###### __Examples:__
 
     # Create a new turbo position for DASH demo mode
-    $ pw.createNewTurboPosition(market='BTC-USD',position_direction='long',contract_type='5min',size=100000,key='DASH_demo_key')
+    $ pw.createNewTurboPosition(market='BTC-USD',position_direction='long',position_type='5min',size=100000,key='DASH_demo_key')
 
 ![Alt text](/picts/passing_key.jpg?raw=true "pywhale logo")
 
