@@ -64,7 +64,7 @@ arg:
 ----
 position_direction	string 		Required. 	Can be "long" or "short"
 market 			string 		Required. 	Market where you want to create a position
-type 			string 		Required. 	Contract type. Can be 1min or 5min
+position_type 		string 		Required. 	Contract type. Can be 1min or 5min
 size                	integer 	Required. 	Turbo position’s size, in satoshis.
 key			string 		Optional. 	One API token to use in order to send the request, could either be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
 
