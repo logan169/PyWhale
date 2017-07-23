@@ -123,7 +123,7 @@ currency 	string 		Base currency.
 
 		#Create request elements
 		url = self.start_url+'position-turbo/new'
-		h = {"Authorization":"Bearer "+key,"Partner-ID":"pnI1A"}
+		h = {"Authorization":"Bearer "+key,"Partner-ID":"fAoRwgvNoQjekD3Hk"}
 		r = requests.post(url, headers=h, data=d)
 
 		if self.verbose:
