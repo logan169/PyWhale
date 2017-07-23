@@ -137,7 +137,7 @@ currency		string 	Base currency.
 
 		#Create request elements
 		url = self.start_url+'position/new'
-		h = {"Authorization":"Bearer "+key,"Partner-ID":"pnI1A"}
+		h = {"Authorization":"Bearer "+key,"Partner-ID":"fAoRwgvNoQjekD3Hk"}
 		r = requests.post(url,headers=h,data=d)
 
 		if self.verbose:
@@ -282,7 +282,7 @@ currency		string 	Base currency.
 
 		#Create request elements
 		url = self.start_url+'position/update/'+position_id
-		h = {"Authorization":"Bearer "+key,"Partner-ID":"pnI1A"}
+		h = {"Authorization":"Bearer "+key,"Partner-ID":"fAoRwgvNoQjekD3Hk"}
 		r = requests.put(url, headers=h, data=d)
 
 		if self.verbose:
@@ -349,7 +349,7 @@ currency		string 	Base currency.
 
 		#Create request elements
 		url = self.start_url+'position/close/'+position_id
-		h = {"Authorization":"Bearer "+key,"Partner-ID":"pnI1A"}
+		h = {"Authorization":"Bearer "+key,"Partner-ID":"fAoRwgvNoQjekD3Hk"}
 		r = requests.put(url, headers=h)
 
 		if self.verbose:
@@ -477,7 +477,7 @@ currency		string 	Base currency.
 
 		#Create request elements
 		url = self.start_url+'position/split/'+position_id
-		h = {"Authorization":"Bearer "+key,"Partner-ID":"pnI1A"}
+		h = {"Authorization":"Bearer "+key,"Partner-ID":"fAoRwgvNoQjekD3Hk"}
 		r = requests.post(url, headers=h,data=d)
 
 		if self.verbose:
