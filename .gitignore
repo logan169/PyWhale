@@ -1,0 +1,3 @@
+# remove __pycache__ folder and their content
+
+__pycache__/*
