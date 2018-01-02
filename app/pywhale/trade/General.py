@@ -15,6 +15,7 @@
 # <http://www.gnu.org/licenses/gpl-3.0.txt>.
 
 import requests
+from statistics import mean
 
 
 class General(object):
@@ -63,7 +64,24 @@ turbo 			object	Information about turbo trading, if it’s available for this ma
 
 		return self._checkResp(r)
 
-	def getPrice(self,symbols,key=None):
+
+	def _calcspread(self, price):
+		"""Calculates absolute and perc. spread and adds it to the input object.
+Accepts a price-object as returned from getPrice
+		"""
+		for key, value in price.items():
+				diff = float(value["ask"]) - float(value["bid"])
+				diffp = diff / \
+				mean([float(value["ask"]), float(value["bid"])]) * 100
+				if self.verbose:
+						print("Market: ", key, "\tAbs:", diff, "\trel:", diffp)
+				price[key]["diff_abs"] = diff
+				price[key]["diff_perc"] = diffp
+
+		return price
+
+
+	def getPrice(self,symbols,key=None, spread=False):
 		"""
 Returns the current bid and ask prices for one or more markets.
 
@@ -71,13 +89,15 @@ args:
 -----
 symbols		string 		List of one or more comma-separated market symbols. You can request market information for up to 5 markets at once. Default is "" and return all symbols
 key		string 		One API token to use in order to send the request, could either be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
-
+spread	boolean		Calculate spread and add that to the response object
 resp:
 -----
 bid 		number		The current bid price.
 ask 		number		The current ask price.
 state 		string		Can be open, closed, pre (pre-market trading – stocks only), or after (after-market trading – stocks only)
 last_updated	integer		When prices for this market were last updated.
+diff_abs	number		Absolute Spread if requested
+diff_perc	number		Percentage Spread if requested
 		"""
 		#test key parameter value is an accepted input
 		test0 =  self._updateKey(key)
@@ -99,12 +119,18 @@ last_updated	integer		When prices for this market were last updated.
 		url = self.start_url+'price/' + str(symbols)
 		h = {"Authorization":"Bearer "+key}
 		r = requests.get(url,headers=h)
-		
+
 		if self.verbose:
 			print('\nPrice informations: \n')
-        
 
-		return self._checkResp(r)
+
+
+		prices = self._checkResp(r)
+		if not spread:
+				return prices
+		else:
+				return self._calcspread(prices)
+
 
 	def getBalance(self,key=None):
 		"""
@@ -126,7 +152,7 @@ pending_amount		object		Balance used in pending positions across markets, in sat
 active_amount_turbo	object		Balance used in active turbo positions across markets, in satoshis.
 last_updated		integer		When your balance was last updated.
 currency		string		Base currency.
-		"""		
+		"""
 
 		#test key parameter value is an accepted input
 		test0 =  self._updateKey(key)
@@ -166,7 +192,7 @@ hash 		string 		Bitcoin transaction hash. Appears only for deposits.
 address 	string 		Destination Bitcoin address. Appears only for withdrawals.
 created_at 	integer 	When the transaction was made.
 currency 	string 		Base currency.
-		"""		
+		"""
 
 		#test limit parameter value
 		if limit < 1 or limit > 50:
@@ -195,7 +221,7 @@ currency 	string 		Base currency.
 			print ('\nYour Transactions history: \n')
 
 		return self._checkResp(r)
-	
+
 	@classmethod
 	def help(self,function_name = None):
 		"""Returns a list of all callable functions"""
@@ -230,7 +256,6 @@ listturboPositions()		List turbo positions.
 
 You could type print(PyWhale.function_name.__doc__) to get more info about any function
 		"""
-		
-		print (help_message)
-		return 
 
+		print (help_message)
+		return
