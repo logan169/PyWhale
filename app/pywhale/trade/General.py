@@ -81,7 +81,7 @@ Accepts a price-object as returned from getPrice
 		return price
 
 
-	def getPrice(self,symbols,key=None, spread=False):
+	def getPrice(self,symbols,key=None, spread=True):
 		"""
 Returns the current bid and ask prices for one or more markets.
 
@@ -234,6 +234,7 @@ General:
 help()			Returns a list of all callable functions.
 getMarkets()		Returns market information for one or more markets.
 getPrice()		Returns the current bid and ask prices for one or more markets.
+getSpread()		Returns the spread for a specified market
 getBalance()		Returns information about your balance.
 getTransactions()	List transactions that have occurred on your account.
 
