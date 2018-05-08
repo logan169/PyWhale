@@ -10,6 +10,7 @@ setup(name='pywhale',
       author='Logan Schwartz, ',
       author_email='logan1691987@gmail.com',
       license='GPLv3',
+      python_requires='>=3',
       classifiers=[
             'Intended Audience :: Developers',
             'Programming Language :: Python',
