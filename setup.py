@@ -1,12 +1,13 @@
 #!/usr/bin/env python
 
 from setuptools import setup
+from setuptools import find_packages
 
 setup(name='pywhale',
-      version='0.1',
+      version='0.2',
       description='python wrapper for Whaleclub.co exchange platform API',
       url='https://github.com/logan169/PyWhale',
-      author='Logan Schwartz',
+      author='Logan Schwartz, ',
       author_email='logan1691987@gmail.com',
       license='GPLv3',
       classifiers=[
@@ -20,6 +21,6 @@ setup(name='pywhale',
             'Topic :: Office/Business :: Financial'
       ],
       keywords='python python3 whaleclub crypto pywhale trade trading api bitcoin wrapper',
-      packages=['pywhale'],
+      packages= find_packages(),
       install_requires=['requests', 'statistics'],
 zip_safe=False)
