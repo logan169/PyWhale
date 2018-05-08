@@ -1,3 +1,7 @@
 # remove __pycache__ folder and their content
 
-__pycache__/*
+__pycache__
+*.pyc
+
+# ignore api token files so it doesn't end up pubicly shared on github
+#pywhale/*.txt
