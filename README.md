@@ -94,6 +94,10 @@ You should note that after creating a PyWhale instance, default_key attribute va
 $ pw.verbose = False
 
 ![Alt text](/picts/verbose.jpg?raw=true "pywhale logo")
+
+## Contributors:
+
+- xmatthias
     
 ## __License__:
 
