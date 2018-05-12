@@ -19,9 +19,7 @@ As far as I know, PyWhale is the only alternative language available if you can'
 * Statistics
 
 ## __Installation:__
-    $ pip3 install requests 
-    $ git clone git@github.com:logan169/PyWhale.git
-    $ cd PyWhale/app
+    $ pip3 install pywhale
 
 ## __How to use it:__
 
@@ -35,6 +33,10 @@ Then copy/paste each api key in the respective following files:
 - {pywhale installation folder}/api_keys/DASH_real_key.txt
 - {pywhale installation folder}/api_keys/ETH_real_key.txt
 - {pywhale installation folder}/api_keys/LTC_real_key.txt
+
+if you don't know your "pywhale installation folder", you could find it in an error message if you type in a ipython3 terminal
+
+    $ from PyWhale import PyWhale
 
 ##### __*Beware to not invert api key, this step is critical so I strongly advise that you check that part twice.*__
 
