@@ -16,6 +16,7 @@ As far as I know, PyWhale is the only alternative language available if you can'
 ## __Dependencies:__
 
 * Requests
+* Statistics
 
 ## __Installation:__
     $ pip3 install requests 
@@ -28,10 +29,12 @@ After creating an account (just click on above referral links if you don't have 
 
 Then copy/paste each api key in the respective following files:
 
-- BTC_demo_key.txt
-- BTC_real_key.txt
-- DASH_demo_key.txt
-- DASH_real_key.txt
+- {pywhale installation folder}/api_keys/BTC_demo_key.txt
+- {pywhale installation folder}/api_keys/BTC_real_key.txt
+- {pywhale installation folder}/api_keys/DASH_demo_key.txt
+- {pywhale installation folder}/api_keys/DASH_real_key.txt
+- {pywhale installation folder}/api_keys/ETH_real_key.txt
+- {pywhale installation folder}/api_keys/LTC_real_key.txt
 
 ##### __*Beware to not invert api key, this step is critical so I strongly advise that you check that part twice.*__
 
@@ -67,6 +70,8 @@ In PyWhale, you could easily switch between real/demo mode & BTC/DASH trading by
 - 'BTC_demo_key'
 - 'DASH_real_key'
 - 'DASH_demo_key'
+- 'ETH_real_key'
+- 'LTC_real_key'
 
 ###### __Examples:__
 
