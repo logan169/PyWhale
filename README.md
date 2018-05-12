@@ -16,11 +16,10 @@ As far as I know, PyWhale is the only alternative language available if you can'
 ## __Dependencies:__
 
 * Requests
+* Statistics
 
 ## __Installation:__
-    $ pip3 install requests 
-    $ git clone git@github.com:logan169/PyWhale.git
-    $ cd PyWhale/app
+    $ pip3 install pywhale
 
 ## __How to use it:__
 
@@ -28,10 +27,16 @@ After creating an account (just click on above referral links if you don't have 
 
 Then copy/paste each api key in the respective following files:
 
-- BTC_demo_key.txt
-- BTC_real_key.txt
-- DASH_demo_key.txt
-- DASH_real_key.txt
+- {pywhale installation folder}/api_keys/BTC_demo_key.txt
+- {pywhale installation folder}/api_keys/BTC_real_key.txt
+- {pywhale installation folder}/api_keys/DASH_demo_key.txt
+- {pywhale installation folder}/api_keys/DASH_real_key.txt
+- {pywhale installation folder}/api_keys/ETH_real_key.txt
+- {pywhale installation folder}/api_keys/LTC_real_key.txt
+
+if you don't know your "pywhale installation folder", you could find it in an error message by typing in a ipython3 terminal
+
+    $ from pywhale.PyWhale import PyWhale
 
 ##### __*Beware to not invert api key, this step is critical so I strongly advise that you check that part twice.*__
 
@@ -39,7 +44,7 @@ Then copy/paste each api key in the respective following files:
 
 ##### __Lets do some Whaly stuff:__
     
-    $ from PyWhale import PyWhale
+    $ from pywhale.PyWhale import PyWhale
     $ pw = PyWhale()  
     
 ![Alt text](/picts/pw.jpg?raw=true "pywhale logo")
@@ -67,6 +72,8 @@ In PyWhale, you could easily switch between real/demo mode & BTC/DASH trading by
 - 'BTC_demo_key'
 - 'DASH_real_key'
 - 'DASH_demo_key'
+- 'ETH_real_key'
+- 'LTC_real_key'
 
 ###### __Examples:__
 
@@ -94,6 +101,10 @@ You should note that after creating a PyWhale instance, default_key attribute va
 $ pw.verbose = False
 
 ![Alt text](/picts/verbose.jpg?raw=true "pywhale logo")
+
+## Contributors:
+
+- xmatthias
     
 ## __License__:
 

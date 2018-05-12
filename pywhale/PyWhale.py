@@ -15,10 +15,10 @@
 # <http://www.gnu.org/licenses/gpl-3.0.txt>.
 
 import json
-from plugins.connection.Api import Api
-from plugins.trade.General import General
-from plugins.trade.Live import Live
-from plugins.trade.Turbo import Turbo
+from pywhale.plugins.connection.Api import Api
+from pywhale.plugins.trade.General import General
+from pywhale.plugins.trade.Live import Live
+from pywhale.plugins.trade.Turbo import Turbo
 
 
 class PyWhale(Api,General,Live,Turbo):
@@ -68,13 +68,13 @@ class PyWhale(Api,General,Live,Turbo):
 			key = self.default_key
 		
 		#test if key parameter value is an accepted input
-		l = ['BTC_real_key', 'BTC_demo_key', 'DASH_real_key','DASH_demo_key']
+		l = ['BTC_real_key', 'BTC_demo_key', 'DASH_real_key','DASH_demo_key', 'LTC_real_key', 'ETH_real_key']
 		if key in l:
 			i = l.index(key)
-			k = [self.BTC_real_key, self.BTC_demo_key, self.DASH_real_key, self.DASH_demo_key]
+			k = [self.BTC_real_key, self.BTC_demo_key, self.DASH_real_key, self.DASH_demo_key, self.ETH_real_key, self.LTC_real_key]
 			key = k[i]	
 		else:
-			print ("\nError, enter an acctepted value for key parameter, could either be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key' \n")
+			print ("\nError, enter an acctepted value for key parameter, could either be 'BTC_real_key', 'BTC_demo_key', 'LTC_real_key', 'ETH_real_key', 'DASH_real_key' or 'DASH_demo_key' \n")
 			return (False,key)
 		
 		return (True,key)
