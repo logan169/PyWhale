@@ -14,7 +14,7 @@
 # General Public LICENSE along with krakenex. If not, see
 # <http://www.gnu.org/licenses/gpl-3.0.txt>.
 
-import sys
+import os, sys
 
 class Api (object):
 	"""	Whaleclub.co cryptocurrency Exchange API Pyhon Client Connection Handler methods:"""
@@ -39,6 +39,7 @@ class Api (object):
 		self.DASH_real_key = DASH_real_key
 		self.ETH_real_key = ETH_real_key
 		self.LTC_real_key = LTC_real_key
+		self.root_path = '/'.join(os.path.dirname(os.path.abspath(__file__)).split('/')[0:-2])
 
 		self.load_tokens()
 
@@ -59,7 +60,8 @@ class Api (object):
 
 		#open files and save token
 		for file in files:
-			f = open('./api_keys/'+file,'r')
+			filepath = '/'.join([self.root_path, 'api_keys', file])
+			f = open(filepath,'r')
 			for lines in file:
 				key = f.readline().rstrip('\n')
 				self.validate_key(file, key)
@@ -79,10 +81,6 @@ class Api (object):
 		if len(key) == 36:
 			return
 		
-
-		import os, sys
-		path = '/'.join(os.path.dirname(os.path.abspath(__file__)).split('/')[0:-2])
-		error_message = '''\nError, API token for {} is either missing or incomplet (length < 36 characters)\nCheck that you've correctly enter your API token in {}/api_keys/{}'''.format(file, path, file)
-
+		error_message = '''\nError, API token for {} is either missing or incomplet (length < 36 characters)\nCheck that you've correctly enter your API token in {}/api_keys/{}'''.format(file, self.root_path, file)
 		sys.exit(error_message)
 

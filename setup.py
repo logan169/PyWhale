@@ -4,7 +4,7 @@ from setuptools import setup
 from setuptools import find_packages
 
 setup(name='pywhale',
-      version='0.2',
+      version='0.7',
       description='python wrapper for Whaleclub.co exchange platform API',
       url='https://github.com/logan169/PyWhale',
       author='Logan Schwartz, ',
@@ -23,5 +23,6 @@ setup(name='pywhale',
       ],
       keywords='python python3 whaleclub crypto pywhale trade trading api bitcoin wrapper',
       packages= find_packages(),
+      include_package_data=True,
       install_requires=['requests', 'statistics'],
 zip_safe=False)

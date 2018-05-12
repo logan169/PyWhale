@@ -15,10 +15,10 @@
 # <http://www.gnu.org/licenses/gpl-3.0.txt>.
 
 import json
-from plugins.connection.Api import Api
-from plugins.trade.General import General
-from plugins.trade.Live import Live
-from plugins.trade.Turbo import Turbo
+from pywhale.plugins.connection.Api import Api
+from pywhale.plugins.trade.General import General
+from pywhale.plugins.trade.Live import Live
+from pywhale.plugins.trade.Turbo import Turbo
 
 
 class PyWhale(Api,General,Live,Turbo):
