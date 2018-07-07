@@ -68,7 +68,7 @@ class PyWhale(Api,General,Live,Turbo):
 			key = self.default_key
 		
 		#test if key parameter value is an accepted input
-		l = ['BTC_real_key', 'BTC_demo_key', 'DASH_real_key','DASH_demo_key', 'LTC_real_key', 'ETH_real_key']
+		l = ['BTC_real_key', 'BTC_demo_key', 'DASH_real_key','DASH_demo_key', 'ETH_real_key', 'LTC_real_key']
 		if key in l:
 			i = l.index(key)
 			k = [self.BTC_real_key, self.BTC_demo_key, self.DASH_real_key, self.DASH_demo_key, self.ETH_real_key, self.LTC_real_key]
