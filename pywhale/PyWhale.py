@@ -22,7 +22,7 @@ from pywhale.plugins.trade.Turbo import Turbo
 
 
 class PyWhale(Api,General,Live,Turbo):
-	"""Whaleclub.co cryptocurrency Exchange API Pyhon Client"""
+	"""Whaleclub.co cryptocurrency Exchange API Python Client"""
 
 	def __init__(self, start_url = 'https://api.whaleclub.co/v1/'):
 		Api.__init__(self) # inherit token from API class for our connection class instance
