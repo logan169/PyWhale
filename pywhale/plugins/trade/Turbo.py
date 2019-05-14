@@ -20,21 +20,22 @@ class Turbo (object):
 
 	def getTurboActiveContracts (self,	key = None):
 		"""
-Fetch a list of currently active turbo contracts.
-This endpoint will return information about currently active contracts such as the purchase deadline and expiry time.
-When you submit a new turbo position, it’ll be on one of the active contracts you get from here.
+		Fetch a list of currently active turbo contracts.
+		This endpoint will return information about currently active contracts such as the purchase deadline and expiry time.
+		When you submit a new turbo position, it’ll be on one of the active contracts you get from here.
 
-arg:
-----
-key		string 		Optional. 	One API token to use in order to send the request, could either be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
+		arg:
+		----
+		key		string 		Optional. 	One API token to use in order to send the request, could either be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
 
-resp:
------
-id 			string		Unique ID for the contract.
-type			string 		Can be 1min or 5min.
-created_at		integer 	When the contract first became active.
-purchase_deadline	integer 	Time before which a turbo position must be submitted to be included in the contract.
-expires_at		integer		When the contract expires and turbo positions settle.
+		resp:
+		-----
+		id 			string		Unique ID for the contract.
+		type			string 		Can be 1min or 5min.
+		created_at		integer 	When the contract first became active.
+		purchase_deadline	integer 	Time before which a turbo position must be submitted to be included in the contract.
+		expires_at		integer		When the contract expires and turbo positions settle.
+
 		"""
 
 		#test key parameter value is an accepted input
@@ -56,33 +57,34 @@ expires_at		integer		When the contract expires and turbo positions settle.
 
 	def createNewTurboPosition(self, position_direction = None, market=None, position_type=None, size=None, key = None):
 		"""
-Open a new turbo position.
-This endpoint allows you to open a new turbo position.
-All turbo positions are executed at the market price, so there is no entry price to set.
+		Open a new turbo position.
+		This endpoint allows you to open a new turbo position.
+		All turbo positions are executed at the market price, so there is no entry price to set.
 
-arg:
-----
-position_direction	string 		Required. 	Can be "long" or "short"
-market 			string 		Required. 	Market where you want to create a position
-position_type 		string 		Required. 	Contract type. Can be 1min or 5min
-size                	integer 	Required. 	Turbo position’s size, in satoshis.
-key			string 		Optional. 	One API token to use in order to send the request, could either be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
+		arg:
+		----
+		position_direction	string 		Required. 	Can be "long" or "short"
+		market 			string 		Required. 	Market where you want to create a position
+		position_type 		string 		Required. 	Contract type. Can be 1min or 5min
+		size                	integer 	Required. 	Turbo position’s size, in satoshis.
+		key			string 		Optional. 	One API token to use in order to send the request, could either be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
 
-resp:
------
-id 		string   	Unique ID for the turbo position.
-contract_id	string	 	ID of the contract this turbo position belongs to.
-direction 	string 	 	Can be long or short.
-market 		string 		Market this turbo position was executed on.
-state 		string 		Can be active, or closed.
-size 		integer 	Position’s size, in satoshis.
-entry_price 	number 		Price at which the turbo position was executed.
-payoff 		number 		Payoff in case of correct prediction. Multiply by size to get payoff in satoshis.
-close_price 	number 		Price at which the position was closed. Appears only if the position is closed.
-profit 		number 		Profit made on the trade, in satoshis. Is negative in case of loss. Appears only if the position is closed.
-created_at 	integer 	When the position was created.
-closed_at 	integer 	When the position was closed. Appears only if the position is closed.
-currency 	string 		Base currency.
+		resp:
+		-----
+		id 		string   	Unique ID for the turbo position.
+		contract_id	string	 	ID of the contract this turbo position belongs to.
+		direction 	string 	 	Can be long or short.
+		market 		string 		Market this turbo position was executed on.
+		state 		string 		Can be active, or closed.
+		size 		integer 	Position’s size, in satoshis.
+		entry_price 	number 		Price at which the turbo position was executed.
+		payoff 		number 		Payoff in case of correct prediction. Multiply by size to get payoff in satoshis.
+		close_price 	number 		Price at which the position was closed. Appears only if the position is closed.
+		profit 		number 		Profit made on the trade, in satoshis. Is negative in case of loss. Appears only if the position is closed.
+		created_at 	integer 	When the position was created.
+		closed_at 	integer 	When the position was closed. Appears only if the position is closed.
+		currency 	string 		Base currency.
+
 		"""
 		d = {}
 
@@ -133,28 +135,29 @@ currency 	string 		Base currency.
 
 	def getTurboPosition(self, position_id=None, key = None):
 		"""
-Fetch information about an existing turbo position.
+		Fetch information about an existing turbo position.
 
-arg:
-----
-position_id 	unique 	 Required.  ID that identify your position
-key		string 	 Optional.  One API token to use in order to send the request, could either be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
+		arg:
+		----
+		position_id 	unique 	 Required.  ID that identify your position
+		key		string 	 Optional.  One API token to use in order to send the request, could either be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
 
-resp:
------
-id 		string   	Unique ID for the turbo position.
-contract_id	string	 	ID of the contract this turbo position belongs to.
-direction 	string 	 	Can be long or short.
-market 		string 		Market this turbo position was executed on.
-state 		string 		Can be active, or closed.
-size 		integer 	Position’s size, in satoshis.
-entry_price 	number 		Price at which the turbo position was executed.
-payoff 		number 		Payoff in case of correct prediction. Multiply by size to get payoff in satoshis.
-close_price 	number 		Price at which the position was closed. Appears only if the position is closed.
-profit 		number 		Profit made on the trade, in satoshis. Is negative in case of loss. Appears only if the position is closed.
-created_at 	integer 	When the position was created.
-closed_at 	integer 	When the position was closed. Appears only if the position is closed.
-currency 	string 		Base currency.
+		resp:
+		-----
+		id 		string   	Unique ID for the turbo position.
+		contract_id	string	 	ID of the contract this turbo position belongs to.
+		direction 	string 	 	Can be long or short.
+		market 		string 		Market this turbo position was executed on.
+		state 		string 		Can be active, or closed.
+		size 		integer 	Position’s size, in satoshis.
+		entry_price 	number 		Price at which the turbo position was executed.
+		payoff 		number 		Payoff in case of correct prediction. Multiply by size to get payoff in satoshis.
+		close_price 	number 		Price at which the position was closed. Appears only if the position is closed.
+		profit 		number 		Profit made on the trade, in satoshis. Is negative in case of loss. Appears only if the position is closed.
+		created_at 	integer 	When the position was created.
+		closed_at 	integer 	When the position was closed. Appears only if the position is closed.
+		currency 	string 		Base currency.
+
 		"""
 
 		#test position_direction value
@@ -181,31 +184,32 @@ currency 	string 		Base currency.
 
 	def listturboPositions(self, position_state='active',limit=5, key=None):
 		"""
-List turbo positions.
-Use this function to request a list of turbo positions. state can be active or closed. Defaults to activeself. 
-Active positions are sorted by created_at and closed positions are sorted by closed_at.
+		List turbo positions.
+		Use this function to request a list of turbo positions. state can be active or closed. Defaults to activeself. 
+		Active positions are sorted by created_at and closed positions are sorted by closed_at.
 
-args:
------
-position_state 	string 	Optional. State can be 'active', or 'closed'. Defaults to active
-limit 		integer Optional. Number of results per request. Defaults to 5. Max is 30.
-key     	string 	Optional. One API token to use, could be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
+		args:
+		-----
+		position_state 	string 	Optional. State can be 'active', or 'closed'. Defaults to active
+		limit 		integer Optional. Number of results per request. Defaults to 5. Max is 30.
+		key     	string 	Optional. One API token to use, could be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
 
-resp:
-----
-id 		string   	Unique ID for the turbo position.
-contract_id	string	 	ID of the contract this turbo position belongs to.
-direction 	string 	 	Can be long or short.
-market 		string 		Market this turbo position was executed on.
-state 		string 		Can be active, or closed.
-size 		integer 	Position’s size, in satoshis.
-entry_price 	number 		Price at which the turbo position was executed.
-payoff 		number 		Payoff in case of correct prediction. Multiply by size to get payoff in satoshis.
-close_price 	number 		Price at which the position was closed. Appears only if the position is closed.
-profit 		number 		Profit made on the trade, in satoshis. Is negative in case of loss. Appears only if the position is closed.
-created_at 	integer 	When the position was created.
-closed_at 	integer 	When the position was closed. Appears only if the position is closed.
-currency 	string 		Base currency.
+		resp:
+		----
+		id 		string   	Unique ID for the turbo position.
+		contract_id	string	 	ID of the contract this turbo position belongs to.
+		direction 	string 	 	Can be long or short.
+		market 		string 		Market this turbo position was executed on.
+		state 		string 		Can be active, or closed.
+		size 		integer 	Position’s size, in satoshis.
+		entry_price 	number 		Price at which the turbo position was executed.
+		payoff 		number 		Payoff in case of correct prediction. Multiply by size to get payoff in satoshis.
+		close_price 	number 		Price at which the position was closed. Appears only if the position is closed.
+		profit 		number 		Profit made on the trade, in satoshis. Is negative in case of loss. Appears only if the position is closed.
+		created_at 	integer 	When the position was created.
+		closed_at 	integer 	When the position was closed. Appears only if the position is closed.
+		currency 	string 		Base currency.
+		
 		"""	
 		d = {}
 

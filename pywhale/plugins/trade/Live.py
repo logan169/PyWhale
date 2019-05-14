@@ -22,48 +22,49 @@ class Live (object):
 	#TODO Test all parameter
 	def newPosition(self, direction=None, market=None, leverage=None, size=None, entry_price=None, stop_loss=None, stop_loss_trailing=None, take_profit=None, key=None):
 		"""
-Submit a new position.
-To submit a limit or stop order, set the entry_price parameter in your request. We’ll automatically detect whether it’s a limit order or a stop order based on the current market price.
-To submit a market order, simply omit the entry_price parameter from your request. Your order will execute at the best available price.
+		Submit a new position.
+		To submit a limit or stop order, set the entry_price parameter in your request. We’ll automatically detect whether it’s a limit order or a stop order based on the current market price.
+		To submit a market order, simply omit the entry_price parameter from your request. Your order will execute at the best available price.
 
-args:
------
-direction		string 	Required Can be long or short.
-market			string 	Required Market this position is executed on.
-leverage		number 	Required Position’s leverage level.
-size			integer Required Your position’s size, in satoshis. This is the total size including leverage, not the margin size.
-entry_price		number 	Optional Set this to submit a limit/stop order. If omitted, your position will execute at the best available market price.
-stop_loss		number 	Optional Price at which your position will auto-close in case of loss.
-stop_loss_trailing	boolean Optional Set to true to enable the stop loss to trail. Works only if stop_loss is set.
-take_profit		number 	Optional Price at which your position will auto-close in profit.
-key   			string 	Optional One API token to use in order to send the request, could either be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
+		args:
+		-----
+		direction		string 	Required Can be long or short.
+		market			string 	Required Market this position is executed on.
+		leverage		number 	Required Position’s leverage level.
+		size			integer Required Your position’s size, in satoshis. This is the total size including leverage, not the margin size.
+		entry_price		number 	Optional Set this to submit a limit/stop order. If omitted, your position will execute at the best available market price.
+		stop_loss		number 	Optional Price at which your position will auto-close in case of loss.
+		stop_loss_trailing	boolean Optional Set to true to enable the stop loss to trail. Works only if stop_loss is set.
+		take_profit		number 	Optional Price at which your position will auto-close in profit.
+		key   			string 	Optional One API token to use in order to send the request, could either be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
 
-resp:
------
-id			string 	Unique ID for the position.
-parent_id		string 	ID of parent position. Appears only if this position has been split.
-slug			string 	A URL-friendly position identifier. Your position can be shared publicly at https://whaleclub.co/position/:slug.
-direction		string 	Can be long or short.
-market			string 	Market this position was executed on.
-leverage		number 	Position’s leverage level.
-type			string 	Order type. Can be market, limit, or stop.
-state			string 	Can be pending, active, or closed.
-size			integer Position’s size, in satoshis.
-margin_size		integer Position’s margin size, in satoshis.
-entry_price		number 	Price at which the position was executed (if at market) or will execute (if limit or stop).
-stop_loss		number 	Price at which the position will auto-close in case of loss. Appears only if the position’s stop-loss is set.
-stop_loss_trailing	object 	Returns {set: true} if the stop loss is a trailing stop loss.
-take_profit		number 	Price at which the position will auto-close in profit. Appears only if the position’s take-profit is set.
-close_reason		string 	How the position was closed. Can be at_market, at_stop, at_target, or liquidation. Appears only if the position is closed.
-close_price		number 	Price at which the position was closed. Appears only if the position is closed.
-profit			integer Profit made on the trade, in satoshis. Negative in case of loss. Appears only if the position is closed.
-created_at		integer When the position was created.
-entered_at		integer When the position was executed. Appears only if the position is active or closed.
-closed_at		integer When the position was closed. Appears only if the position is closed.
-ast_updated		integer When the position’s stop-loss and/or take-profit was last updated. Appears only if the position is manually updated after it’s been submitted.
-liquidation_price	number 	Price at which the position will auto-close to cover your margin in case of loss.
-financing		integer Leverage financing charged on the position, in satoshis. Appears only if the position is active or closed.
-currency		string 	Base currency.
+		resp:
+		-----
+		id			string 	Unique ID for the position.
+		parent_id		string 	ID of parent position. Appears only if this position has been split.
+		slug			string 	A URL-friendly position identifier. Your position can be shared publicly at https://whaleclub.co/position/:slug.
+		direction		string 	Can be long or short.
+		market			string 	Market this position was executed on.
+		leverage		number 	Position’s leverage level.
+		type			string 	Order type. Can be market, limit, or stop.
+		state			string 	Can be pending, active, or closed.
+		size			integer Position’s size, in satoshis.
+		margin_size		integer Position’s margin size, in satoshis.
+		entry_price		number 	Price at which the position was executed (if at market) or will execute (if limit or stop).
+		stop_loss		number 	Price at which the position will auto-close in case of loss. Appears only if the position’s stop-loss is set.
+		stop_loss_trailing	object 	Returns {set: true} if the stop loss is a trailing stop loss.
+		take_profit		number 	Price at which the position will auto-close in profit. Appears only if the position’s take-profit is set.
+		close_reason		string 	How the position was closed. Can be at_market, at_stop, at_target, or liquidation. Appears only if the position is closed.
+		close_price		number 	Price at which the position was closed. Appears only if the position is closed.
+		profit			integer Profit made on the trade, in satoshis. Negative in case of loss. Appears only if the position is closed.
+		created_at		integer When the position was created.
+		entered_at		integer When the position was executed. Appears only if the position is active or closed.
+		closed_at		integer When the position was closed. Appears only if the position is closed.
+		ast_updated		integer When the position’s stop-loss and/or take-profit was last updated. Appears only if the position is manually updated after it’s been submitted.
+		liquidation_price	number 	Price at which the position will auto-close to cover your margin in case of loss.
+		financing		integer Leverage financing charged on the position, in satoshis. Appears only if the position is active or closed.
+		currency		string 	Base currency.
+
 		"""
 
 		d = {}
@@ -147,39 +148,40 @@ currency		string 	Base currency.
 
 	def getPosition(self, position_id=None, key=None):
 		"""
-Fetch information about an existing position.
+		Fetch information about an existing position.
 
-args:
------
-position_id 		string 	Id of the Position we want to get informations about
-key 			string 	Optional One API token to use in order to send the request, could either be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
+		args:
+		-----
+		position_id 		string 	Id of the Position we want to get informations about
+		key 			string 	Optional One API token to use in order to send the request, could either be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
 
-resp:
------
-id			string 	Unique ID for the position.
-parent_id		string 	ID of parent position. Appears only if this position has been split.
-slug			string 	A URL-friendly position identifier. Your position can be shared publicly at https://whaleclub.co/position/:slug.
-direction		string 	Can be long or short.
-market			string 	Market this position was executed on.
-leverage		number 	Position’s leverage level.
-type			string 	Order type. Can be market, limit, or stop.
-state			string 	Can be pending, active, or closed.
-size			integer Position’s size, in satoshis.
-margin_size		integer Position’s margin size, in satoshis.
-entry_price		number 	Price at which the position was executed (if at market) or will execute (if limit or stop).
-stop_loss		number 	Price at which the position will auto-close in case of loss. Appears only if the position’s stop-loss is set.
-stop_loss_trailing	object 	Returns {set: true} if the stop loss is a trailing stop loss.
-take_profit		number 	Price at which the position will auto-close in profit. Appears only if the position’s take-profit is set.
-close_reason		string 	How the position was closed. Can be at_market, at_stop, at_target, or liquidation. Appears only if the position is closed.
-close_price		number 	Price at which the position was closed. Appears only if the position is closed.
-profit			integer Profit made on the trade, in satoshis. Negative in case of loss. Appears only if the position is closed.
-created_at		integer When the position was created.
-entered_at		integer When the position was executed. Appears only if the position is active or closed.
-closed_at		integer When the position was closed. Appears only if the position is closed.
-ast_updated		integer When the position’s stop-loss and/or take-profit was last updated. Appears only if the position is manually updated after it’s been submitted.
-liquidation_price	number 	Price at which the position will auto-close to cover your margin in case of loss.
-financing		integer Leverage financing charged on the position, in satoshis. Appears only if the position is active or closed.
-currency		string 	Base currency.
+		resp:
+		-----
+		id			string 	Unique ID for the position.
+		parent_id		string 	ID of parent position. Appears only if this position has been split.
+		slug			string 	A URL-friendly position identifier. Your position can be shared publicly at https://whaleclub.co/position/:slug.
+		direction		string 	Can be long or short.
+		market			string 	Market this position was executed on.
+		leverage		number 	Position’s leverage level.
+		type			string 	Order type. Can be market, limit, or stop.
+		state			string 	Can be pending, active, or closed.
+		size			integer Position’s size, in satoshis.
+		margin_size		integer Position’s margin size, in satoshis.
+		entry_price		number 	Price at which the position was executed (if at market) or will execute (if limit or stop).
+		stop_loss		number 	Price at which the position will auto-close in case of loss. Appears only if the position’s stop-loss is set.
+		stop_loss_trailing	object 	Returns {set: true} if the stop loss is a trailing stop loss.
+		take_profit		number 	Price at which the position will auto-close in profit. Appears only if the position’s take-profit is set.
+		close_reason		string 	How the position was closed. Can be at_market, at_stop, at_target, or liquidation. Appears only if the position is closed.
+		close_price		number 	Price at which the position was closed. Appears only if the position is closed.
+		profit			integer Profit made on the trade, in satoshis. Negative in case of loss. Appears only if the position is closed.
+		created_at		integer When the position was created.
+		entered_at		integer When the position was executed. Appears only if the position is active or closed.
+		closed_at		integer When the position was closed. Appears only if the position is closed.
+		ast_updated		integer When the position’s stop-loss and/or take-profit was last updated. Appears only if the position is manually updated after it’s been submitted.
+		liquidation_price	number 	Price at which the position will auto-close to cover your margin in case of loss.
+		financing		integer Leverage financing charged on the position, in satoshis. Appears only if the position is active or closed.
+		currency		string 	Base currency.
+
 		"""
 
 		#Test position_id 
@@ -205,41 +207,42 @@ currency		string 	Base currency.
 
 	def updatePosition(self, position_id=None, stop_loss=None, stop_loss_trailing=None, take_profit=None, key=None):
 		"""
-Fetch information about an existing position.
+		Fetch information about an existing position.
 
-args:
-position_id 		string 				Required. 	Id of the Position we want to get informations about
-stop_loss 		number 				Optional. 	Price at which the position will auto-close in case of loss. Must be set if take_profit is not. Set to 0 to remove an existing stop-loss.
-stop_loss_trailing 	boolean or number 		Optional. 	Set to true to enable the stop loss to trail. Works only if stop_loss is set. Set to 0 to disable trailing.
-take_profit 		number 				Optional. 	rice at which the position will auto-close in profit. Must be set if stop_loss is not. Set to 0 to remove an existing take-profit.
-key 			string 				Optional. 	One API token to use in order to send the request, could either be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
+		args:
+		position_id 		string 				Required. 	Id of the Position we want to get informations about
+		stop_loss 		number 				Optional. 	Price at which the position will auto-close in case of loss. Must be set if take_profit is not. Set to 0 to remove an existing stop-loss.
+		stop_loss_trailing 	boolean or number 		Optional. 	Set to true to enable the stop loss to trail. Works only if stop_loss is set. Set to 0 to disable trailing.
+		take_profit 		number 				Optional. 	rice at which the position will auto-close in profit. Must be set if stop_loss is not. Set to 0 to remove an existing take-profit.
+		key 			string 				Optional. 	One API token to use in order to send the request, could either be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
 
-resp:
------
-id			string 	Unique ID for the position.
-parent_id		string 	ID of parent position. Appears only if this position has been split.
-slug			string 	A URL-friendly position identifier. Your position can be shared publicly at https://whaleclub.co/position/:slug.
-direction		string 	Can be long or short.
-market			string 	Market this position was executed on.
-leverage		number 	Position’s leverage level.
-type			string 	Order type. Can be market, limit, or stop.
-state			string 	Can be pending, active, or closed.
-size			integer Position’s size, in satoshis.
-margin_size		integer Position’s margin size, in satoshis.
-entry_price		number 	Price at which the position was executed (if at market) or will execute (if limit or stop).
-stop_loss		number 	Price at which the position will auto-close in case of loss. Appears only if the position’s stop-loss is set.
-stop_loss_trailing	object 	Returns {set: true} if the stop loss is a trailing stop loss.
-take_profit		number 	Price at which the position will auto-close in profit. Appears only if the position’s take-profit is set.
-close_reason		string 	How the position was closed. Can be at_market, at_stop, at_target, or liquidation. Appears only if the position is closed.
-close_price		number 	Price at which the position was closed. Appears only if the position is closed.
-profit			integer Profit made on the trade, in satoshis. Negative in case of loss. Appears only if the position is closed.
-created_at		integer When the position was created.
-entered_at		integer When the position was executed. Appears only if the position is active or closed.
-closed_at		integer When the position was closed. Appears only if the position is closed.
-ast_updated		integer When the position’s stop-loss and/or take-profit was last updated. Appears only if the position is manually updated after it’s been submitted.
-liquidation_price	number 	Price at which the position will auto-close to cover your margin in case of loss.
-financing		integer Leverage financing charged on the position, in satoshis. Appears only if the position is active or closed.
-currency		string 	Base currency.
+		resp:
+		-----
+		id			string 	Unique ID for the position.
+		parent_id		string 	ID of parent position. Appears only if this position has been split.
+		slug			string 	A URL-friendly position identifier. Your position can be shared publicly at https://whaleclub.co/position/:slug.
+		direction		string 	Can be long or short.
+		market			string 	Market this position was executed on.
+		leverage		number 	Position’s leverage level.
+		type			string 	Order type. Can be market, limit, or stop.
+		state			string 	Can be pending, active, or closed.
+		size			integer Position’s size, in satoshis.
+		margin_size		integer Position’s margin size, in satoshis.
+		entry_price		number 	Price at which the position was executed (if at market) or will execute (if limit or stop).
+		stop_loss		number 	Price at which the position will auto-close in case of loss. Appears only if the position’s stop-loss is set.
+		stop_loss_trailing	object 	Returns {set: true} if the stop loss is a trailing stop loss.
+		take_profit		number 	Price at which the position will auto-close in profit. Appears only if the position’s take-profit is set.
+		close_reason		string 	How the position was closed. Can be at_market, at_stop, at_target, or liquidation. Appears only if the position is closed.
+		close_price		number 	Price at which the position was closed. Appears only if the position is closed.
+		profit			integer Profit made on the trade, in satoshis. Negative in case of loss. Appears only if the position is closed.
+		created_at		integer When the position was created.
+		entered_at		integer When the position was executed. Appears only if the position is active or closed.
+		closed_at		integer When the position was closed. Appears only if the position is closed.
+		ast_updated		integer When the position’s stop-loss and/or take-profit was last updated. Appears only if the position is manually updated after it’s been submitted.
+		liquidation_price	number 	Price at which the position will auto-close to cover your margin in case of loss.
+		financing		integer Leverage financing charged on the position, in satoshis. Appears only if the position is active or closed.
+		currency		string 	Base currency.
+		
 		"""
 
 		d = {}
@@ -292,48 +295,49 @@ currency		string 	Base currency.
 
 	def closePosition(self, position_id=None, key=None):
 		"""
-Close one or multiple active positions at market price.
-position_id is a list of one or more comma-separated position IDs.
-Use this function to close existing active positions at the best available market price.
-Positions are closed sequentially as they hit our system (not in parallel). 
-If you’re closing a large number of positions at once, the market price may move in the time it takes to close them all.
-If you’re looking to close at a specific market price, close your positions individually or use a take-profit or stop-loss.
+		Close one or multiple active positions at market price.
+		position_id is a list of one or more comma-separated position IDs.
+		Use this function to close existing active positions at the best available market price.
+		Positions are closed sequentially as they hit our system (not in parallel). 
+		If you’re closing a large number of positions at once, the market price may move in the time it takes to close them all.
+		If you’re looking to close at a specific market price, close your positions individually or use a take-profit or stop-loss.
 
 
-args:
------
-position_id 		string 				Required. 	Id of the Position we want to get informations about
-stop_loss 		number 				Optional. 	Price at which the position will auto-close in case of loss. Must be set if take_profit is not. Set to 0 to remove an existing stop-loss.
-stop_loss_trailing 	boolean or number 		Optional. 	Set to true to enable the stop loss to trail. Works only if stop_loss is set. Set to 0 to disable trailing.
-take_profit 		number 				Optional. 	rice at which the position will auto-close in profit. Must be set if stop_loss is not. Set to 0 to remove an existing take-profit.
-key 			string 				Optional. 	One API token to use in order to send the request, could either be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
+		args:
+		-----
+		position_id 		string 				Required. 	Id of the Position we want to get informations about
+		stop_loss 		number 				Optional. 	Price at which the position will auto-close in case of loss. Must be set if take_profit is not. Set to 0 to remove an existing stop-loss.
+		stop_loss_trailing 	boolean or number 		Optional. 	Set to true to enable the stop loss to trail. Works only if stop_loss is set. Set to 0 to disable trailing.
+		take_profit 		number 				Optional. 	rice at which the position will auto-close in profit. Must be set if stop_loss is not. Set to 0 to remove an existing take-profit.
+		key 			string 				Optional. 	One API token to use in order to send the request, could either be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
 
-resp:
------
-id			string 	Unique ID for the position.
-parent_id		string 	ID of parent position. Appears only if this position has been split.
-slug			string 	A URL-friendly position identifier. Your position can be shared publicly at https://whaleclub.co/position/:slug.
-direction		string 	Can be long or short.
-market			string 	Market this position was executed on.
-leverage		number 	Position’s leverage level.
-type			string 	Order type. Can be market, limit, or stop.
-state			string 	Can be pending, active, or closed.
-size			integer Position’s size, in satoshis.
-margin_size		integer Position’s margin size, in satoshis.
-entry_price		number 	Price at which the position was executed (if at market) or will execute (if limit or stop).
-stop_loss		number 	Price at which the position will auto-close in case of loss. Appears only if the position’s stop-loss is set.
-stop_loss_trailing	object 	Returns {set: true} if the stop loss is a trailing stop loss.
-take_profit		number 	Price at which the position will auto-close in profit. Appears only if the position’s take-profit is set.
-close_reason		string 	How the position was closed. Can be at_market, at_stop, at_target, or liquidation. Appears only if the position is closed.
-close_price		number 	Price at which the position was closed. Appears only if the position is closed.
-profit			integer Profit made on the trade, in satoshis. Negative in case of loss. Appears only if the position is closed.
-created_at		integer When the position was created.
-entered_at		integer When the position was executed. Appears only if the position is active or closed.
-closed_at		integer When the position was closed. Appears only if the position is closed.
-ast_updated		integer When the position’s stop-loss and/or take-profit was last updated. Appears only if the position is manually updated after it’s been submitted.
-liquidation_price	number 	Price at which the position will auto-close to cover your margin in case of loss.
-financing		integer Leverage financing charged on the position, in satoshis. Appears only if the position is active or closed.
-currency		string 	Base currency.
+		resp:
+		-----
+		id			string 	Unique ID for the position.
+		parent_id		string 	ID of parent position. Appears only if this position has been split.
+		slug			string 	A URL-friendly position identifier. Your position can be shared publicly at https://whaleclub.co/position/:slug.
+		direction		string 	Can be long or short.
+		market			string 	Market this position was executed on.
+		leverage		number 	Position’s leverage level.
+		type			string 	Order type. Can be market, limit, or stop.
+		state			string 	Can be pending, active, or closed.
+		size			integer Position’s size, in satoshis.
+		margin_size		integer Position’s margin size, in satoshis.
+		entry_price		number 	Price at which the position was executed (if at market) or will execute (if limit or stop).
+		stop_loss		number 	Price at which the position will auto-close in case of loss. Appears only if the position’s stop-loss is set.
+		stop_loss_trailing	object 	Returns {set: true} if the stop loss is a trailing stop loss.
+		take_profit		number 	Price at which the position will auto-close in profit. Appears only if the position’s take-profit is set.
+		close_reason		string 	How the position was closed. Can be at_market, at_stop, at_target, or liquidation. Appears only if the position is closed.
+		close_price		number 	Price at which the position was closed. Appears only if the position is closed.
+		profit			integer Profit made on the trade, in satoshis. Negative in case of loss. Appears only if the position is closed.
+		created_at		integer When the position was created.
+		entered_at		integer When the position was executed. Appears only if the position is active or closed.
+		closed_at		integer When the position was closed. Appears only if the position is closed.
+		ast_updated		integer When the position’s stop-loss and/or take-profit was last updated. Appears only if the position is manually updated after it’s been submitted.
+		liquidation_price	number 	Price at which the position will auto-close to cover your margin in case of loss.
+		financing		integer Leverage financing charged on the position, in satoshis. Appears only if the position is active or closed.
+		currency		string 	Base currency.
+
 		"""
 
 		#Test position_id 
@@ -359,41 +363,42 @@ currency		string 	Base currency.
 
 	def cancelPosition(self, position_id=None, key=None):
 		"""
-Cancel one or multiple pending positions.
-position_id is a list of one or more comma-separated position IDs.
-This function allows you to cancel limit or stop orders that haven’t yet executed. Once cancelled, your positions will be deleted and will no longer be accessible.
+		Cancel one or multiple pending positions.
+		position_id is a list of one or more comma-separated position IDs.
+		This function allows you to cancel limit or stop orders that haven’t yet executed. Once cancelled, your positions will be deleted and will no longer be accessible.
 
 
-args:
-position_id 		string 		Required. 	Id of the Position we want to get informations about
-key 			string 		Optional. 	One API token to use in order to send the request, could either be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
+		args:
+		position_id 		string 		Required. 	Id of the Position we want to get informations about
+		key 			string 		Optional. 	One API token to use in order to send the request, could either be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
 
-resp:
------
-id			string 	Unique ID for the position.
-parent_id		string 	ID of parent position. Appears only if this position has been split.
-slug			string 	A URL-friendly position identifier. Your position can be shared publicly at https://whaleclub.co/position/:slug.
-direction		string 	Can be long or short.
-market			string 	Market this position was executed on.
-leverage		number 	Position’s leverage level.
-type			string 	Order type. Can be market, limit, or stop.
-state			string 	Can be pending, active, or closed.
-size			integer Position’s size, in satoshis.
-margin_size		integer Position’s margin size, in satoshis.
-entry_price		number 	Price at which the position was executed (if at market) or will execute (if limit or stop).
-stop_loss		number 	Price at which the position will auto-close in case of loss. Appears only if the position’s stop-loss is set.
-stop_loss_trailing	object 	Returns {set: true} if the stop loss is a trailing stop loss.
-take_profit		number 	Price at which the position will auto-close in profit. Appears only if the position’s take-profit is set.
-close_reason		string 	How the position was closed. Can be at_market, at_stop, at_target, or liquidation. Appears only if the position is closed.
-close_price		number 	Price at which the position was closed. Appears only if the position is closed.
-profit			integer Profit made on the trade, in satoshis. Negative in case of loss. Appears only if the position is closed.
-created_at		integer When the position was created.
-entered_at		integer When the position was executed. Appears only if the position is active or closed.
-closed_at		integer When the position was closed. Appears only if the position is closed.
-ast_updated		integer When the position’s stop-loss and/or take-profit was last updated. Appears only if the position is manually updated after it’s been submitted.
-liquidation_price	number 	Price at which the position will auto-close to cover your margin in case of loss.
-financing		integer Leverage financing charged on the position, in satoshis. Appears only if the position is active or closed.
-currency		string 	Base currency.
+		resp:
+		-----
+		id			string 	Unique ID for the position.
+		parent_id		string 	ID of parent position. Appears only if this position has been split.
+		slug			string 	A URL-friendly position identifier. Your position can be shared publicly at https://whaleclub.co/position/:slug.
+		direction		string 	Can be long or short.
+		market			string 	Market this position was executed on.
+		leverage		number 	Position’s leverage level.
+		type			string 	Order type. Can be market, limit, or stop.
+		state			string 	Can be pending, active, or closed.
+		size			integer Position’s size, in satoshis.
+		margin_size		integer Position’s margin size, in satoshis.
+		entry_price		number 	Price at which the position was executed (if at market) or will execute (if limit or stop).
+		stop_loss		number 	Price at which the position will auto-close in case of loss. Appears only if the position’s stop-loss is set.
+		stop_loss_trailing	object 	Returns {set: true} if the stop loss is a trailing stop loss.
+		take_profit		number 	Price at which the position will auto-close in profit. Appears only if the position’s take-profit is set.
+		close_reason		string 	How the position was closed. Can be at_market, at_stop, at_target, or liquidation. Appears only if the position is closed.
+		close_price		number 	Price at which the position was closed. Appears only if the position is closed.
+		profit			integer Profit made on the trade, in satoshis. Negative in case of loss. Appears only if the position is closed.
+		created_at		integer When the position was created.
+		entered_at		integer When the position was executed. Appears only if the position is active or closed.
+		closed_at		integer When the position was closed. Appears only if the position is closed.
+		ast_updated		integer When the position’s stop-loss and/or take-profit was last updated. Appears only if the position is manually updated after it’s been submitted.
+		liquidation_price	number 	Price at which the position will auto-close to cover your margin in case of loss.
+		financing		integer Leverage financing charged on the position, in satoshis. Appears only if the position is active or closed.
+		currency		string 	Base currency.
+
 		"""
 
 		#Test position_id 
@@ -419,40 +424,41 @@ currency		string 	Base currency.
 
 	def splitPosition(self, position_id=None, ratio=None, key=None):
 		"""
-Split an existing pending or active position.
-This function  allows you to split an existing position according to a ratio you provide. It can only be called on a pending or active position.
+		Split an existing pending or active position.
+		This function  allows you to split an existing position according to a ratio you provide. It can only be called on a pending or active position.
 
-args:
-position_id 		string 		Required. 	Id of the Position we want to get informations about
-ratio			integer		Required 	Pourcent you want to split your position. Must be between 5 and 95.
-key 			string 		Optional. 	One API token to use in order to send the request, could either be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
+		args:
+		position_id 		string 		Required. 	Id of the Position we want to get informations about
+		ratio			integer		Required 	Pourcent you want to split your position. Must be between 5 and 95.
+		key 			string 		Optional. 	One API token to use in order to send the request, could either be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
 
-resp:
------
-id			string 	Unique ID for the position.
-parent_id		string 	ID of parent position. Appears only if this position has been split.
-slug			string 	A URL-friendly position identifier. Your position can be shared publicly at https://whaleclub.co/position/:slug.
-direction		string 	Can be long or short.
-market			string 	Market this position was executed on.
-leverage		number 	Position’s leverage level.
-type			string 	Order type. Can be market, limit, or stop.
-state			string 	Can be pending, active, or closed.
-size			integer Position’s size, in satoshis.
-margin_size		integer Position’s margin size, in satoshis.
-entry_price		number 	Price at which the position was executed (if at market) or will execute (if limit or stop).
-stop_loss		number 	Price at which the position will auto-close in case of loss. Appears only if the position’s stop-loss is set.
-stop_loss_trailing	object 	Returns {set: true} if the stop loss is a trailing stop loss.
-take_profit		number 	Price at which the position will auto-close in profit. Appears only if the position’s take-profit is set.
-close_reason		string 	How the position was closed. Can be at_market, at_stop, at_target, or liquidation. Appears only if the position is closed.
-close_price		number 	Price at which the position was closed. Appears only if the position is closed.
-profit			integer Profit made on the trade, in satoshis. Negative in case of loss. Appears only if the position is closed.
-created_at		integer When the position was created.
-entered_at		integer When the position was executed. Appears only if the position is active or closed.
-closed_at		integer When the position was closed. Appears only if the position is closed.
-ast_updated		integer When the position’s stop-loss and/or take-profit was last updated. Appears only if the position is manually updated after it’s been submitted.
-liquidation_price	number 	Price at which the position will auto-close to cover your margin in case of loss.
-financing		integer Leverage financing charged on the position, in satoshis. Appears only if the position is active or closed.
-currency		string 	Base currency.
+		resp:
+		-----
+		id			string 	Unique ID for the position.
+		parent_id		string 	ID of parent position. Appears only if this position has been split.
+		slug			string 	A URL-friendly position identifier. Your position can be shared publicly at https://whaleclub.co/position/:slug.
+		direction		string 	Can be long or short.
+		market			string 	Market this position was executed on.
+		leverage		number 	Position’s leverage level.
+		type			string 	Order type. Can be market, limit, or stop.
+		state			string 	Can be pending, active, or closed.
+		size			integer Position’s size, in satoshis.
+		margin_size		integer Position’s margin size, in satoshis.
+		entry_price		number 	Price at which the position was executed (if at market) or will execute (if limit or stop).
+		stop_loss		number 	Price at which the position will auto-close in case of loss. Appears only if the position’s stop-loss is set.
+		stop_loss_trailing	object 	Returns {set: true} if the stop loss is a trailing stop loss.
+		take_profit		number 	Price at which the position will auto-close in profit. Appears only if the position’s take-profit is set.
+		close_reason		string 	How the position was closed. Can be at_market, at_stop, at_target, or liquidation. Appears only if the position is closed.
+		close_price		number 	Price at which the position was closed. Appears only if the position is closed.
+		profit			integer Profit made on the trade, in satoshis. Negative in case of loss. Appears only if the position is closed.
+		created_at		integer When the position was created.
+		entered_at		integer When the position was executed. Appears only if the position is active or closed.
+		closed_at		integer When the position was closed. Appears only if the position is closed.
+		last_updated		integer When the position’s stop-loss and/or take-profit was last updated. Appears only if the position is manually updated after it’s been submitted.
+		liquidation_price	number 	Price at which the position will auto-close to cover your margin in case of loss.
+		financing		integer Leverage financing charged on the position, in satoshis. Appears only if the position is active or closed.
+		currency		string 	Base currency.
+
 		"""
 		d = {}
 
@@ -487,42 +493,43 @@ currency		string 	Base currency.
 
 	def listPositions(self, position_state='active',limit=5, key=None):
 		"""
-List positions.
-Use this function to request a list of positions. state can be 'pending', 'active', or 'closed'. Defaults to active.
-It’s strongly recommended that you maintain your own list of positions and use the Price endpoint to keep it updated instead of polling this endpoint to track the state of your positions.
-Pending positions are sorted by created_at, active positions are sorted by entered_at, and closed positions are sorted by closed_at.
+		List positions.
+		Use this function to request a list of positions. state can be 'pending', 'active', or 'closed'. Defaults to active.
+		It’s strongly recommended that you maintain your own list of positions and use the Price endpoint to keep it updated instead of polling this endpoint to track the state of your positions.
+		Pending positions are sorted by created_at, active positions are sorted by entered_at, and closed positions are sorted by closed_at.
 
-args:
-position_state		string 		Optional. 	State can be 'pending', 'active', or 'closed'. Defaults to active
-limit 			integer 	Optional. 	Number of results per request. Defaults to 5. Max is 30.
-key     		string 		Optional. 	One API token to use in order to send the request, could either be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
+		args:
+		position_state		string 		Optional. 	State can be 'pending', 'active', or 'closed'. Defaults to active
+		limit 			integer 	Optional. 	Number of results per request. Defaults to 5. Max is 30.
+		key     		string 		Optional. 	One API token to use in order to send the request, could either be 'BTC_real_key', 'BTC_demo_key', 'DASH_real_key' or 'DASH_demo_key'. DEFAULT is BTC_demo_key
 
-resp:
------
-id			string 	Unique ID for the position.
-parent_id		string 	ID of parent position. Appears only if this position has been split.
-slug			string 	A URL-friendly position identifier. Your position can be shared publicly at https://whaleclub.co/position/:slug.
-direction		string 	Can be long or short.
-market			string 	Market this position was executed on.
-leverage		number 	Position’s leverage level.
-type			string 	Order type. Can be market, limit, or stop.
-state			string 	Can be pending, active, or closed.
-size			integer Position’s size, in satoshis.
-margin_size		integer Position’s margin size, in satoshis.
-entry_price		number 	Price at which the position was executed (if at market) or will execute (if limit or stop).
-stop_loss		number 	Price at which the position will auto-close in case of loss. Appears only if the position’s stop-loss is set.
-stop_loss_trailing	object 	Returns {set: true} if the stop loss is a trailing stop loss.
-take_profit		number 	Price at which the position will auto-close in profit. Appears only if the position’s take-profit is set.
-close_reason		string 	How the position was closed. Can be at_market, at_stop, at_target, or liquidation. Appears only if the position is closed.
-close_price		number 	Price at which the position was closed. Appears only if the position is closed.
-profit			integer Profit made on the trade, in satoshis. Negative in case of loss. Appears only if the position is closed.
-created_at		integer When the position was created.
-entered_at		integer When the position was executed. Appears only if the position is active or closed.
-closed_at		integer When the position was closed. Appears only if the position is closed.
-ast_updated		integer When the position’s stop-loss and/or take-profit was last updated. Appears only if the position is manually updated after it’s been submitted.
-liquidation_price	number 	Price at which the position will auto-close to cover your margin in case of loss.
-financing		integer Leverage financing charged on the position, in satoshis. Appears only if the position is active or closed.
-currency		string 	Base currency.
+		resp:
+		-----
+		id			string 	Unique ID for the position.
+		parent_id		string 	ID of parent position. Appears only if this position has been split.
+		slug			string 	A URL-friendly position identifier. Your position can be shared publicly at https://whaleclub.co/position/:slug.
+		direction		string 	Can be long or short.
+		market			string 	Market this position was executed on.
+		leverage		number 	Position’s leverage level.
+		type			string 	Order type. Can be market, limit, or stop.
+		state			string 	Can be pending, active, or closed.
+		size			integer Position’s size, in satoshis.
+		margin_size		integer Position’s margin size, in satoshis.
+		entry_price		number 	Price at which the position was executed (if at market) or will execute (if limit or stop).
+		stop_loss		number 	Price at which the position will auto-close in case of loss. Appears only if the position’s stop-loss is set.
+		stop_loss_trailing	object 	Returns {set: true} if the stop loss is a trailing stop loss.
+		take_profit		number 	Price at which the position will auto-close in profit. Appears only if the position’s take-profit is set.
+		close_reason		string 	How the position was closed. Can be at_market, at_stop, at_target, or liquidation. Appears only if the position is closed.
+		close_price		number 	Price at which the position was closed. Appears only if the position is closed.
+		profit			integer Profit made on the trade, in satoshis. Negative in case of loss. Appears only if the position is closed.
+		created_at		integer When the position was created.
+		entered_at		integer When the position was executed. Appears only if the position is active or closed.
+		closed_at		integer When the position was closed. Appears only if the position is closed.
+		ast_updated		integer When the position’s stop-loss and/or take-profit was last updated. Appears only if the position is manually updated after it’s been submitted.
+		liquidation_price	number 	Price at which the position will auto-close to cover your margin in case of loss.
+		financing		integer Leverage financing charged on the position, in satoshis. Appears only if the position is active or closed.
+		currency		string 	Base currency.
+		
 		"""		
 		d = {}
 

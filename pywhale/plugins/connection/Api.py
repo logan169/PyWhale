@@ -17,10 +17,14 @@
 import os, sys
 
 class Api (object):
-	"""	Whaleclub.co cryptocurrency Exchange API Pyhon Client Connection Handler methods:"""
+	"""
+	Whaleclub.co cryptocurrency Exchange API Pyhon Client Connection Handler methods:
+	
+	"""
 	
 	def __init__(self, BTC_real_key='', BTC_demo_key='', DASH_real_key='', DASH_demo_key='', ETH_real_key='', LTC_real_key=''):
-		"""Create an object with authentication information.
+		"""
+		Create an object with authentication information.
 		API Token could be find from your API Settings panel which is available from the top right menu in your trading dashboard.
 
 		Args:
@@ -30,7 +34,6 @@ class Api (object):
 		BTC_real_key  -- BTC API Token for real mode
 		ETH_real_key  -- ETH API Token for real mode
 		LTC_real_key  -- LTC API Token for real mode
-
 
 		"""
 		self.BTC_demo_key = BTC_demo_key
@@ -44,8 +47,10 @@ class Api (object):
 		self.load_tokens()
 
 	def load_tokens(self):
-		"""Load API token from files
+		"""
+		Load API token from files
 		BTC_demo_key.txt,BTC_real_key.txt,DASH_demo_key.txt,DASH_real_key.txt, ETH_real_key.txt, LTC_real_key.txt
+		
 		"""
 
 		keys = []
@@ -75,7 +80,10 @@ class Api (object):
 		print (welcome_message + message)
 
 	def validate_key(self, file, key):
-		"""Validate that the key exists and is complet"""
+		"""
+		Validate that the key exists and is complet
+		
+		"""
 
 		#check if token exist and are complet, token length is 36 char long
 		if len(key) == 36:
