@@ -6,12 +6,7 @@ PyWhale is a python3 wrapper for [whaleclub.co REST api](http://docs.whaleclub.c
 
 PyWhale was created to keep things as simple and intuitive as possible while performing complex requests to REST api. It contains all functions available in [whaleclub.co REST api documentation](http://docs.whaleclub.co/#overview) allowing user to get simultaniously up to 5 markets price, place live or turbo trades, easily switch between real/demo mode or BTC/DASH trading and much more. For better user experience, I've took the liberty to reformat whaleclub.co api functions documentation into functions doc string so one could access all relevants informations directly.
 
-As far as I know, PyWhale is the only alternative language available if you can't (or just do not want to) use the javascript wrapper in order to interact with whaleclub REST api. PyWhale was created on my own free time, so if you wish to support my work you could start by staring it and either:
-
-* Consider creating an account using my whaleclub's referral link, so you'll get a 30% deposit bonus: 
-  * https://whaleclub.co/join/pnI1A
-* leave me a tip at:
-  * (BTC) 1MsRAPzQyvoRa5w3oBbPveSg6y6S7Ycogg
+As far as I know, PyWhale is the only alternative language available if you can't (or just do not want to) use the javascript wrapper in order to interact with whaleclub REST api. PyWhale was created in collaboration with Charles Smith with the idea of using it as a based to create trading bots.
 
 ## __Dependencies:__
 
