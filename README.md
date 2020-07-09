@@ -99,7 +99,9 @@ $ pw.verbose = False
 
 ## Contributors:
 
+- Charles Smith
 - xmatthias
+- lepeuvedic
     
 ## __License__:
 
